@@ -25,6 +25,9 @@ struct ExplorerCell: View {
                 .foregroundColor(.secondary)
                 .font(XFont.universal(for: .footnote).font)
             Spacer()
+            Text(song.popularity.description)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
         }
         .tapToPresent(ViewerSessionView(song: song), .fullScreen)
     }

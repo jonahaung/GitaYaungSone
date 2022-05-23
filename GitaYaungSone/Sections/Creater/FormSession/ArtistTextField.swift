@@ -36,7 +36,7 @@ extension ArtistTextField {
     
     class Coordinator: NSObject, ACTFDataSource, UITextFieldDelegate {
         
-        var weightedDomains: [AutoCompleteData] = Artist.demos.map{ .init(text: $0.name, weight: 0)}
+        var weightedDomains: [AutoCompleteData] = []
         
         private var text: Binding<String>
         

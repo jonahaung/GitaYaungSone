@@ -13,26 +13,21 @@ struct HomeSession: View {
         HomeSessionNavItemsView {
             XScrollView {
                 RemoteSearchableView {
-                    VStack {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Artists/Bands")
-                                .foregroundStyle(.tertiary)
-                                .padding(.horizontal)
+                    LazyVStack {
+                        XSectionTitleView(title: "Artists/Bands") {
                             SingerTagsView()
                         }
-                        
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Genres")
-                                .foregroundStyle(.tertiary)
+                        XSectionTitleView(title: "Suggestions") {
+                            XSectionView {
+                                HomeExplorerView()
+                            }
+                        }
+                        XSectionTitleView(title: "Genres") {
                             GenreTagsView()
+                                .padding(.horizontal)
                         }
-                        .padding(.horizontal)
-                        
-                        XSectionView {
-                            HomeExplorerView()
-                        }
-                        
                     }
+                    .opacity(0.8)
                 }
             }
         }

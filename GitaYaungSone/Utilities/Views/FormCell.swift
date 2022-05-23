@@ -22,3 +22,18 @@ struct FormCell<Content: View>: View {
         }.frame(maxWidth: .infinity)
     }
 }
+
+struct FormCell2<Content: View>: View {
+    
+    let left: () -> Content
+    let right: () -> Content
+    
+    var body: some View {
+        HStack {
+            left()
+            Spacer()
+            right()
+                .foregroundStyle(.secondary)
+        }
+    }
+}

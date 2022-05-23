@@ -10,12 +10,15 @@ import SwiftUI
 struct XScrollView<Content: View>: View {
     let content: () -> Content
     var body: some View {
-        ZStack {
-            XConstants.UI.Colors.scrollVeiwBackground.edgesIgnoringSafeArea(.all)
-            ScrollView(showsIndicators: false) {
-                content()
-            }
-            
+        ScrollView(showsIndicators: false) {
+            content()
         }
+//        ZStack {
+////            XConstants.UI.Colors.scrollVeiwBackground.edgesIgnoringSafeArea(.all)
+//            ScrollView(showsIndicators: false) {
+//                content()
+//            }
+//            
+//        }
     }
 }

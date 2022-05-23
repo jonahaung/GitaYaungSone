@@ -25,8 +25,8 @@ struct ChordTag: View {
     let chord: String
     var body: some View {
         Text(chord)
-            .font(XFont.chord().font)
-            .foregroundColor(.pink)
+//            .font(XFont.chord().font)
+            .foregroundColor(.orange)
             .tapToPresent(Text(chord))
     }
 }

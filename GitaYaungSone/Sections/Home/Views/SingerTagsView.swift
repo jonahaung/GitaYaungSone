@@ -9,9 +9,12 @@ import SwiftUI
 import WaterfallGrid
 
 struct SingerTagsView: View {
+    
+    @State private var artists = [Artist]()
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            WaterfallGrid(Artist.demos) { artist in
+            WaterfallGrid(artists) { artist in
                 VStack {
                     Text(artist.name)
                         .font(.title3)
@@ -19,13 +22,16 @@ struct SingerTagsView: View {
                 }
                 .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
                 .background(Color(uiColor: .separator).cornerRadius(12))
-                .tapToPush(ExplorerView(SearchItem(text: artist.name, property: .artist)))
+                .tapToPush(ExplorerView(filters: [.artist(artist.name)]))
             }
             .frame(minHeight: 250)
             .padding(.leading)
             .gridStyle(columns: 6, spacing: 3)
             .scrollOptions(direction: .horizontal)
+            
         }
-        
+        .task {
+            artists = await ArtistRepo.shared.fetch([])
+        }
     }
 }

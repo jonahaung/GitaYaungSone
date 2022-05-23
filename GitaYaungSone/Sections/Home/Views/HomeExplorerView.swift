@@ -9,16 +9,19 @@ import SwiftUI
 
 struct HomeExplorerView: View {
     
-    @StateObject private var viewModel = ExplorerViewModel(nil)
+    @StateObject private var viewModel = ExplorerViewModel()
     var body: some View {
-        LazyVStack(spacing: 10) {
+        VStack(spacing: 10) {
             ForEach(viewModel.songs) { song in
                 ExplorerCell(song: song)
+                if song.id != viewModel.songs.last?.id {
+                    Divider()
+                }
             }
         }
         .padding(5)
         .task {
-            await viewModel.fetch()
+            await viewModel.fetch(for: [])
         }
     }
 }

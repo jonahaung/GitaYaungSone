@@ -42,7 +42,7 @@ extension CreaterSessionView {
         let saveButtonEnabled = !viewModel.song.title.isWhitespace && !viewModel.song.artist.isWhitespace && !viewModel.song.rawText.isWhitespace
         return HStack {
             ComfirmButton(buttonText: "Upload this song") {
-                ItemRepository.shared.add(viewModel.song) { error in
+                SongRepo.shared.add(viewModel.song) { error in
                     DispatchQueue.main.async {
                         YSong.create(song: viewModel.song)
                         self.dismiss()

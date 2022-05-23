@@ -12,7 +12,7 @@ extension YSong {
     var song: Song {
         Song(ySong: self)
     }
-    class func save(song: Song) -> YSong {
+    private class func save(song: Song) -> YSong {
         let context = PersistenceController.shared.context
         let x = YSong(context: context)
         x.title = song.title
@@ -95,15 +95,33 @@ extension YSong {
         }
     }
     
-    class func search(value: String, property: Song.Property) -> [YSong] {
-        let context = PersistenceController.shared.context
-        let request = NSFetchRequest<YSong>(entityName: YSong.entity().name!)
-        request.predicate = NSPredicate(format: "\(property.key) ==[cd] %@", value)
-        request.sortDescriptors = [NSSortDescriptor(key: "lastViewed", ascending: false)]
-        do {
-            return try context.fetch(request)
-        } catch {
-            fatalError()
-        }
+//    class func search(value: String, property: Song.Property) -> [YSong] {
+//        let context = PersistenceController.shared.context
+//        let request = NSFetchRequest<YSong>(entityName: YSong.entity().name!)
+//        request.predicate = NSPredicate(format: "\(property.rawValue) ==[cd] %@", value)
+//        request.sortDescriptors = [NSSortDescriptor(key: "lastViewed", ascending: false)]
+//        do {
+//            return try context.fetch(request)
+//        } catch {
+//            fatalError()
+//        }
+//    }
+}
+
+extension Song {
+    init(ySong: YSong) {
+        id = ySong.id.str
+        title = ySong.title.str
+        artists = [ySong.artist.str]
+        composer = ySong.composer.str
+        album = ySong.album.str
+        key = ySong.key.str
+        tempo = ySong.tempo.str
+        genre = ySong.genre.str
+        mediaLink = ySong.mediaLink.str
+        rawText = ySong.rawText.str
+        created = ySong.date ?? Date()
+        createrID = "aungkomin"
+        artist = ySong.artist.str
     }
 }

@@ -67,7 +67,7 @@ public class AutoCompleteTextField: UITextField {
     
     /// Supported domain names
     static public let domainNames: [AutoCompleteData] = {
-        return Artist.demos.map{ .init(text: $0.name, weight: 0)}
+        return []
     }()
     
     public override var font: UIFont? {

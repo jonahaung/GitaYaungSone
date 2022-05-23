@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct SearchResultCell: View {
-    let result: SearchItem
+    let result: Song.QueryFilter
     var body: some View {
         HStack {
-            Text(result.text)
+            Text(result.value)
                 .font(XFont.universal(for: .callout).font)
             Spacer()
-            Text(result.property.rawValue)
+            Text(result.key)
                 .italic()
                 .foregroundStyle(.tertiary)
         }
-        .tapToPush(ExplorerView(result))
+        .tapToPush(ExplorerView(filters: [result]))
     }
 }

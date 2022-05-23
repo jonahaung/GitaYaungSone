@@ -23,7 +23,7 @@ struct CreaterForm: View {
                         TextField("Artist / Singer", text: $viewModel.song.artist)
                         XIcon(.magnifyingglass)
                             .imageScale(.medium)
-                            .tapToPresent(XPicker(title: "Artists", items: Artist.demos.map{$0.name}, pickedItem: $viewModel.song.artist), .fullScreen)
+//                            .tapToPresent(XPicker(title: "Artists", items: Artist.demos.map{$0.name}, pickedItem: $viewModel.song.artist), .fullScreen)
                     }
                 }
             }
@@ -52,10 +52,7 @@ struct CreaterForm: View {
                 FormCell(icon: .magazine) {
                     TextField.init("Album", text: $viewModel.song.album)
                 }
-                FormCell(icon: .calendar) {
-                    TextField.init("Year", text: $viewModel.song.year)
-                        .keyboardType(.numbersAndPunctuation)
-                }
+                
                 FormCell(icon: .music_note_tv) {
                     Picker("Genre", selection: $viewModel.song.genre) {
                         ForEach(Genre.allCases) {

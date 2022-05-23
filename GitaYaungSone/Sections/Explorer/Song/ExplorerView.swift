@@ -9,11 +9,9 @@ import SwiftUI
 
 struct ExplorerView: View {
     
-    @StateObject private var viewModel: ExplorerViewModel
+    let filters: [Song.QueryFilter]
     
-    init(_ filter: SearchItem?) {
-        _viewModel = .init(wrappedValue: .init(filter))
-    }
+    @StateObject private var viewModel = ExplorerViewModel()
     
     var body: some View {
         List {
@@ -22,8 +20,8 @@ struct ExplorerView: View {
             }
         }
         .task {
-            await viewModel.fetch()
+            await viewModel.fetch(for: filters)
         }
-        .navigationTitle(viewModel.filter?.text ?? "My Song Book")
+        .navigationTitle(filters.map{$0.value}.joined(separator: " "))
     }
 }

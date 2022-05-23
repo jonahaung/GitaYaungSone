@@ -18,7 +18,7 @@ struct SavedSongsView: View {
     
     var body: some View {
         Section {
-            SavedSearchableView {
+            RemoteSearchableView {
                 List {
                     Section {
                         switch currentArrangement {
