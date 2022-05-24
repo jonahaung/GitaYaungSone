@@ -134,10 +134,10 @@
 		4705843528392E49004F08A7 /* ViewerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EA28392E49004F08A7 /* ViewerTextView.swift */; };
 		4705843628392E49004F08A7 /* ViewerAttributedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EB28392E49004F08A7 /* ViewerAttributedTextView.swift */; };
 		4705843728392E49004F08A7 /* ViewerSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583ED28392E49004F08A7 /* ViewerSessionView.swift */; };
-		4705843828392E49004F08A7 /* ChordTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EE28392E49004F08A7 /* ChordTextView.swift */; };
 		4705843928392E49004F08A7 /* ViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EF28392E49004F08A7 /* ViewerViewModel.swift */; };
 		4705843A28392E49004F08A7 /* SongLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583F028392E49004F08A7 /* SongLineView.swift */; };
 		4705844128392FE7004F08A7 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = 4705844028392FE7004F08A7 /* SwiftyTesseract */; };
+		472C55D9283D5C2C0019DFE1 /* ChordDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472C55D8283D5C2C0019DFE1 /* ChordDiagramView.swift */; };
 		47823A36283A6E640080EFAC /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47823A35283A6E640080EFAC /* Artist.swift */; };
 		47823A38283A72FB0080EFAC /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47823A37283A72FB0080EFAC /* Developer.swift */; };
 		47823A3A283A91A00080EFAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47823A39283A91A00080EFAC /* Launch Screen.storyboard */; };
@@ -148,6 +148,7 @@
 		4794AE45283B7A23005020C1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE44283B7A23005020C1 /* Album.swift */; };
 		4794AE47283B7A7E005020C1 /* AlbumRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE46283B7A7E005020C1 /* AlbumRepo.swift */; };
 		4794AE49283B8049005020C1 /* XSectionbTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE48283B8049005020C1 /* XSectionbTitleView.swift */; };
+		47E6EB70283D32C800E0EB68 /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,10 +275,10 @@
 		470583EA28392E49004F08A7 /* ViewerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerTextView.swift; sourceTree = "<group>"; };
 		470583EB28392E49004F08A7 /* ViewerAttributedTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerAttributedTextView.swift; sourceTree = "<group>"; };
 		470583ED28392E49004F08A7 /* ViewerSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerSessionView.swift; sourceTree = "<group>"; };
-		470583EE28392E49004F08A7 /* ChordTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordTextView.swift; sourceTree = "<group>"; };
 		470583EF28392E49004F08A7 /* ViewerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerViewModel.swift; sourceTree = "<group>"; };
 		470583F028392E49004F08A7 /* SongLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongLineView.swift; sourceTree = "<group>"; };
 		4705843B28392E7A004F08A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		472C55D8283D5C2C0019DFE1 /* ChordDiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDiagramView.swift; sourceTree = "<group>"; };
 		47823A35283A6E640080EFAC /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		47823A37283A72FB0080EFAC /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		47823A39283A91A00080EFAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -288,6 +289,7 @@
 		4794AE44283B7A23005020C1 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		4794AE46283B7A7E005020C1 /* AlbumRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepo.swift; sourceTree = "<group>"; };
 		4794AE48283B8049005020C1 /* XSectionbTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSectionbTitleView.swift; sourceTree = "<group>"; };
+		47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +419,7 @@
 				4705831728392DB2004F08A7 /* Extensions */,
 				4705831C28392DB2004F08A7 /* Common */,
 				4705832228392DB2004F08A7 /* Pickers */,
-				4705832828392DB2004F08A7 /* Views */,
+				4705832828392DB2004F08A7 /* SharedViews */,
 				4705834128392DB2004F08A7 /* ViewModifiers */,
 				47823A37283A72FB0080EFAC /* Developer.swift */,
 			);
@@ -459,7 +461,7 @@
 			path = Pickers;
 			sourceTree = "<group>";
 		};
-		4705832828392DB2004F08A7 /* Views */ = {
+		4705832828392DB2004F08A7 /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
 				4705832928392DB2004F08A7 /* XSectionView.swift */,
@@ -475,8 +477,9 @@
 				4705833428392DB2004F08A7 /* AutoCompleteTextField */,
 				4705833928392DB2004F08A7 /* X */,
 				4705834028392DB2004F08A7 /* CancelButton.swift */,
+				47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */,
 			);
-			path = Views;
+			path = SharedViews;
 			sourceTree = "<group>";
 		};
 		4705832B28392DB2004F08A7 /* ActivityView */ = {
@@ -768,10 +771,10 @@
 		470583DF28392E49004F08A7 /* ChordLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				470583E528392E49004F08A7 /* ChordsLibrarySession.swift */,
 				470583E028392E49004F08A7 /* LibraryChord.swift */,
 				470583E128392E49004F08A7 /* Resources */,
 				470583E428392E49004F08A7 /* Instrument.swift */,
-				470583E528392E49004F08A7 /* ChordsLibrarySession.swift */,
 				470583E628392E49004F08A7 /* FretboardView.swift */,
 			);
 			path = ChordLibrary;
@@ -790,10 +793,8 @@
 			isa = PBXGroup;
 			children = (
 				470583ED28392E49004F08A7 /* ViewerSessionView.swift */,
-				470583F028392E49004F08A7 /* SongLineView.swift */,
-				470583EE28392E49004F08A7 /* ChordTextView.swift */,
+				47E6EB71283D3D2F00E0EB68 /* Views */,
 				470583EF28392E49004F08A7 /* ViewerViewModel.swift */,
-				47823A88283AC88A0080EFAC /* SongInfoView.swift */,
 				470583E928392E49004F08A7 /* AttributedTextView */,
 			);
 			path = Viewer;
@@ -816,6 +817,16 @@
 				470583CB28392E49004F08A7 /* ExplorerView.swift */,
 			);
 			path = Song;
+			sourceTree = "<group>";
+		};
+		47E6EB71283D3D2F00E0EB68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				470583F028392E49004F08A7 /* SongLineView.swift */,
+				47823A88283AC88A0080EFAC /* SongInfoView.swift */,
+				472C55D8283D5C2C0019DFE1 /* ChordDiagramView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -973,6 +984,7 @@
 				4794AE45283B7A23005020C1 /* Album.swift in Sources */,
 				47823A38283A72FB0080EFAC /* Developer.swift in Sources */,
 				4705836828392DB3004F08A7 /* CancelButton.swift in Sources */,
+				47E6EB70283D32C800E0EB68 /* AppLogoView.swift in Sources */,
 				4705835F28392DB3004F08A7 /* ACTFProtocols.swift in Sources */,
 				4705836728392DB3004F08A7 /* XConstants.swift in Sources */,
 				4705835828392DB3004F08A7 /* HtmlView.swift in Sources */,
@@ -983,7 +995,6 @@
 				4705830928392DA6004F08A7 /* Persistence.swift in Sources */,
 				4794AE47283B7A7E005020C1 /* AlbumRepo.swift in Sources */,
 				47823A36283A6E640080EFAC /* Artist.swift in Sources */,
-				4705843828392E49004F08A7 /* ChordTextView.swift in Sources */,
 				4705840C28392E49004F08A7 /* ArtistTextField.swift in Sources */,
 				4705835028392DB3004F08A7 /* DocumentPicker.swift in Sources */,
 				4705834928392DB3004F08A7 /* +String.swift in Sources */,
@@ -1014,6 +1025,7 @@
 				4705840328392E49004F08A7 /* EditScanCornerView.swift in Sources */,
 				4705836C28392DB3004F08A7 /* TapToPushStyle.swift in Sources */,
 				4705840928392E49004F08A7 /* ToolbarInputAccessory.swift in Sources */,
+				472C55D9283D5C2C0019DFE1 /* ChordDiagramView.swift in Sources */,
 				4705843228392E49004F08A7 /* Instrument.swift in Sources */,
 				4705841B28392E49004F08A7 /* AuthenticationChecker.swift in Sources */,
 				4705841528392E49004F08A7 /* GenreTagsView.swift in Sources */,

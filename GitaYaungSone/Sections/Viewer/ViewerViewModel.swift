@@ -28,21 +28,20 @@ final class ViewerViewModel: ObservableObject {
 extension Song {
     
     struct Line: Hashable, Identifiable {
-        let id = UUID().uuidString
+        let id = UUID()
         var chordTexts = [ChordText]()
+        
         struct ChordText: Hashable, Identifiable {
-            let id = UUID().uuidString
+            let id = UUID()
             let chord: String
             let text: String
-        }
-        var hasNoChords: Bool {
-            return chordTexts.allSatisfy { $0.chord.isWhitespace }
         }
     }
     
     func lines() -> [Line] {
         SongParser.songLines(rawText: rawText)
     }
+    
     func attributedText() -> NSMutableAttributedString {
         func titleAttributedText() -> NSMutableAttributedString {
             let mutable = NSMutableAttributedString()
@@ -57,7 +56,6 @@ extension Song {
         let cFont = XFont.chord()
         
         self.lines().forEach { line in
-            
             var chordLine = String()
             var wordLine = String()
             
@@ -70,8 +68,8 @@ extension Song {
                 }
                 chordLine += " "
             }
-            attrText.append(.init(string: chordLine.newLine, attributes: [.font: XFont.chord(), .foregroundColor: UIColor.systemRed]))
-            attrText.append(.init(string: wordLine.newLine, attributes: [.font: font]))
+            attrText.append(.init(string: chordLine.newLine, attributes: [.font: cFont, .foregroundColor: UIColor.systemOrange]))
+            attrText.append(.init(string: wordLine.newLine, attributes: [.font: font, .foregroundColor: UIColor.label]))
         }
         attrText.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.nonLineBreak, range: rawText.nsRange())
         return attrText

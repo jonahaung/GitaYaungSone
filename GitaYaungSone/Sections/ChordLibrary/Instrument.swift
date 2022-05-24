@@ -15,6 +15,7 @@ public struct Instrument: Decodable, Hashable {
 }
 
 extension Instrument {
+    
     public static let guitar = instrument(from: "guitar")
     public static let ukulele = instrument(from: "ukulele")
     

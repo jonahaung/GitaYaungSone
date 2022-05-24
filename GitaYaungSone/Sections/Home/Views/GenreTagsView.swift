@@ -9,10 +9,13 @@ import SwiftUI
 
 struct GenreTagsView: View {
     var body: some View {
-        AutoWrap(Genre.allCases, id: \.self, vSpacing: 5, hSpacing: 5) { genre in
-            Tag(genre.rawValue, fgcolor: .secondary, bgcolor: .init(uiColor: .separator))
-                .tapToPush(ExplorerView(filters: [.genre(genre.rawValue)]))
+        XSectionTitleView(title: "Genres") {
+            AutoWrap(Genre.allCases, id: \.self, vSpacing: 5, hSpacing: 5) { genre in
+                Tag(genre.rawValue, fgcolor: .secondary, bgcolor: .init(uiColor: .separator))
+                    .tapToPush(ExplorerView(filters: [.genre(genre.rawValue)]))
+            }
         }
+        .padding(.horizontal)
     }
 }
 

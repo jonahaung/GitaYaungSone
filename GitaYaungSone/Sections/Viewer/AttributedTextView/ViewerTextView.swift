@@ -33,7 +33,6 @@ extension ViewerTextView {
         
         func makeUIView(context: Context) -> ViewerTextView {
             let view = ViewerTextView()
-            
             viewModel.textView = view
             return view
         }

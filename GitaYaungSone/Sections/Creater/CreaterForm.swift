@@ -71,7 +71,10 @@ struct CreaterForm: View {
                     viewModel.song = Song.hotelCalifornia
                 }
                 Button("Myanmar") {
-                    viewModel.song = Song.myanmar
+                    viewModel.song = Song.kabarMaKyay
+                }
+                Button("Min Sate Net Koe Ko") {
+                    viewModel.song = Song.minSateNetKoeKo
                 }
             }
         }

@@ -17,7 +17,6 @@ public struct Chord {
     
     public enum Key: String, CaseIterable, Codable, Identifiable {
         public var id: Key { self }
-        
         case c = "C"
         case cSharp = "C#"
         case d = "D"

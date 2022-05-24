@@ -41,20 +41,40 @@ extension Song {
     var canSave: Bool { !hasNotFilledForm && !rawText.isWhitespace }
     
     static let hotelCalifornia: Song = {
-        var x = Song(rawText: FormatIdentifier.process(hotelCaliforniaText))
+        var x = Song(rawText: FormatIdentifier.process(hotelCaliforniaString))
         x.title = "Hotel California"
         x.artist = "The Eaglses"
         return x
     }()
-    static let myanmar: Song = {
-        var x = Song(rawText: withChords)
+    static let kabarMaKyay: Song = {
+        var x = Song(rawText: kabarMaKyayString)
         x.title = "ကမ္ဘာမကျေ"
         x.artist = "တို့ဘိုးဘွား"
         return x
     }()
+    static let minSateNetKoeKo: Song = {
+        var x = Song(rawText: minSateNetKoeKoString)
+        x.title = "မင်းစိတ်နဲ့ကိုယ့်ကိုယ်"
+        x.artist = "Alex"
+        x.album = "အဲလက်စ်နှင့်သူ၏သီချင်းများ"
+        x.composer = "ကိုနေဝင်း"
+        x.key = "A"
+        return x
+    }()
 }
 
-let withChords = """
+let minSateNetKoeKoString = """
+{title: မင်းစိတ်နဲ့ကိုယ့်ကိုယ်}
+{subtitle: Alex}
+{composer : ကိုနေဝင်း}
+{album: အဲလက်စ်နှင့်သူ၏သီချင်းများ}
+{key: A}
+
+[G]တိမ်လို တွယ်ရာမဲ့စွာ[D]နဲ့ [Em]လေနှင်ရာကို လွှင့်ပစ်[C]ခဲ့
+အချစ်[G]လေး မင်းမရှိတော့လည်း[D]
+ကိုယ့်တစ်ယောက်[G]တည်း[D][C]
+"""
+let kabarMaKyayString = """
 {title: ကမ္ဘာမကျေ မြန်မာပြည်}
 {artist: များလူခပ်သိမ်း}
 {key: C}
@@ -91,7 +111,7 @@ let withChords = """
 [C]တို့ပြည် တို့မြေ [F]အကျိုးကို [G]ညီညာစွာတို့တစ်တွေ[Am]
 [F]ထမ်းဆောင်ပါစို့လေ [G]တို့တာဝန်ပေ အဖိုးတန်မြေ။[C]
 """
-let hotelCaliforniaText = """
+let hotelCaliforniaString = """
 Am                        E7
 On a dark desert highway, cool wind in my hair
 G                     D

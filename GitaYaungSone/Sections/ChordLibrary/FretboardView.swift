@@ -21,7 +21,6 @@ public struct FretboardView: View {
         self.frets = position.frets
         self.barres = position.barres
         self.baseFret = position.baseFret
-        print(position)
     }
     
     public var body: some View {
@@ -37,7 +36,7 @@ public struct FretboardView: View {
                         if shouldShowFingers(for: index) {
                             Text("\(fingers[index])")
                                 .foregroundColor(.primary)
-                                .font(.system(size: proxy.size.width/10, weight: .medium))
+                                .font(.system(size: proxy.size.width/10))
                                 .frame(width: gridWidth(for: proxy),
                                        height: gridHeight(for: proxy))
                                 .offset(calculateOffset(index: index, proxy: proxy, isNumber: true))
@@ -136,11 +135,11 @@ public struct FretboardView: View {
                     .clipShape(Circle())
                     .padding(gridWidth(for: proxy)*0.1)
             } else if frets[index] < 0 {
-                Text("X")
+                Text("x")
                     .foregroundColor(.gray)
                     .font(.system(size: proxy.size.width/10, weight: .bold))
             } else if frets[index] == 0 {
-                Text("O")
+                Text("0")
                     .foregroundColor(.gray)
                     .font(.system(size: proxy.size.width/10, weight: .bold))
             }

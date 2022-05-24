@@ -14,13 +14,9 @@ struct HomeSessionNavItemsView<Content: View>: View {
     var body: some View {
         content()
             .navigationTitle("Home")
-            .navigationBarItems(leading: leadingItems, trailing: trailingItems)
+            .navigationBarItems(leading: AppLogoView(fontSize: 24), trailing: trailingItems)
     }
-    private var leadingItems: some View {
-        Text("ဂီတရောင်စုံ")
-            .font(.custom(XFont.MyanmarFont.MasterpieceSpringRev.description, size: 24))
-            .foregroundColor(.brown)
-    }
+    
     private var trailingItems: some View {
         Label("Add", systemImage: XIcon.Icon.plus.systemName)
             .tapToPresent(CreaterSessionView(), .fullScreen)

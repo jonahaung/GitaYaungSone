@@ -13,22 +13,24 @@ struct SingerTagsView: View {
     @State private var artists = [Artist]()
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            WaterfallGrid(artists) { artist in
-                VStack {
-                    Text(artist.name)
-                        .font(.title3)
-                        .foregroundColor(XColor.Light.random())
+        XSectionTitleView(title: "Artists/Bands") {
+            ScrollView(.horizontal, showsIndicators: false) {
+                WaterfallGrid(artists) { artist in
+                    VStack {
+                        Text(artist.name)
+                            .font(.title3)
+                            .foregroundColor(XColor.Light.random())
+                    }
+                    .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
+                    .background(Color(uiColor: .separator).cornerRadius(12))
+                    .tapToPush(ExplorerView(filters: [.artist(artist.name)]))
                 }
-                .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
-                .background(Color(uiColor: .separator).cornerRadius(12))
-                .tapToPush(ExplorerView(filters: [.artist(artist.name)]))
+                .gridStyle(columns: 6, spacing: 3)
+                .frame(minHeight: 250)
+                .padding(.leading)
+                .scrollOptions(direction: .horizontal)
+                
             }
-            .frame(minHeight: 250)
-            .padding(.leading)
-            .gridStyle(columns: 6, spacing: 3)
-            .scrollOptions(direction: .horizontal)
-            
         }
         .task {
             artists = await ArtistRepo.shared.fetch([])
