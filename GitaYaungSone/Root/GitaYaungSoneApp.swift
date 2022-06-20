@@ -17,6 +17,7 @@ struct GitaYaungSoneApp: App {
             MainTabView()
                 .environment(\.managedObjectContext, persistance.context)
                 .environmentObject(AppSettings.shared)
+                .environmentObject(Authenticator.shared)
         }
     }
 }

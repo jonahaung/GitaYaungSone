@@ -10,11 +10,28 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject private var appSettings: AppSettings
+    @EnvironmentObject private var authenticator: Authenticator
     
     var body: some View {
         Form {
-            Button("Developer Action") {
-                Developer.upDateArtists()
+            Section {
+                if let user = authenticator.currentUser {
+                    FormCell2 {
+                        Text("user")
+                    } right: {
+                        Text(user.email ?? "Annoymous")
+                    }
+                    .tapToPush(SettingsUserProfile())
+                } else {
+                    Text("Sign In")
+                        .tapToPush(SignInView())
+                }
+            }
+            
+            Section {
+                Button("Developer Action") {
+                    Developer.upDateArtists()
+                }
             }
         }
         .navigationTitle("Settings")

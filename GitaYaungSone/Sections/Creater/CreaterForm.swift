@@ -68,7 +68,7 @@ struct CreaterForm: View {
             }
             Section("Import") {
                 Button("Hotel California") {
-                    viewModel.song = Song.hotelCalifornia
+                    viewModel.song = Song.aLoMaShi
                 }
                 Button("Myanmar") {
                     viewModel.song = Song.kabarMaKyay

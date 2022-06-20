@@ -9,6 +9,25 @@ import SwiftUI
 
 public struct XColor {
     
+    static func randomColor(seed: String) -> UIColor {
+        
+        var total: Int = 0
+        for u in seed.unicodeScalars {
+            total += Int(UInt32(u))
+        }
+        
+        srand48(total * 200)
+        let r = CGFloat(drand48())
+        
+        srand48(total)
+        let g = CGFloat(drand48())
+        
+        srand48(total / 200)
+        let b = CGFloat(drand48())
+        
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+    
     public struct Light {
         public static let red = Color(hex: 0xF5BCBC)
         public static let orange = Color(hex: 0xFDD0B2)
@@ -79,3 +98,6 @@ extension Color {
     }
 }
 
+extension UIColor {
+    var color: Color { .init(uiColor: self)}
+}

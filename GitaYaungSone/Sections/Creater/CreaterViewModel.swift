@@ -40,10 +40,14 @@ extension Song {
     var hasNotFilledForm: Bool { title.isWhitespace || artist.isWhitespace }
     var canSave: Bool { !hasNotFilledForm && !rawText.isWhitespace }
     
-    static let hotelCalifornia: Song = {
-        var x = Song(rawText: FormatIdentifier.process(hotelCaliforniaString))
-        x.title = "Hotel California"
-        x.artist = "The Eaglses"
+    static let aLoMaShi: Song = {
+        var x = Song(rawText: FormatIdentifier.process(aloMaShi))
+        x.title = "အလိုမရှိ"
+        x.artist = "Myanmar Gen Z"
+        x.composer = "Myanmar Gen Z"
+        x.key = "A"
+        x.album = "Spring Revolution"
+        x.genre = "other"
         return x
     }()
     static let kabarMaKyay: Song = {
@@ -112,98 +116,95 @@ let kabarMaKyayString = """
 [F]ထမ်းဆောင်ပါစို့လေ [G]တို့တာဝန်ပေ အဖိုးတန်မြေ။[C]
 """
 let hotelCaliforniaString = """
-Am                        E7
-On a dark desert highway, cool wind in my hair
-G                     D
-Warm smell of colitas rising up through the air
-F                         C
-Up ahead in the distance, I saw a shimmering light
-Dm
-My head grew heavy and my sight grew dim,
-E
-I had to stop for the night
+Em                   Am      D                 Em
+မနက်အစောကြီးထလို့ ပန်းတွေကောက်   စျေးဗန်းလေးနဲ့ လမ်းပေါ်လျှောက်
+Em               Am     C         B7           Em
+အမေ့ဆေးခန်းပြဖို့ ပိုက်ဆံစုရမယ်   ပန်းရောင်း ကောင်းဖို့အတွက် ဆုတောင်း
+ 
+Em                       Am  D                        Em
+ကောက်ညှင်းပေါင်းစားပြီး စျေးတွေရောင်း အဖေ့အားဆေးလေးများ စျေးတွေကောင်း
+Em                       Am     C        B7             Em
+အဖေကြိုက်တဲ့ ကြေးအိုးလေး ၀ယ်ကျွေးဖို့ကွယ် ပန်းရောင်း ကောင်းဖို့အတွက် ဆုတောင်း
+ 
 
-[Verse 2]
-Am                              E7
-There she stood in the doorway, I heard the mission bell
-G
-And I was thinking to myself
-             D
-This could be heaven or this could be hell
-F                         C
-Then she lit up a candle, and she showed me the way
-Dm
-There were voices down the corridor,
-E7
-I thought I heard them say...
+    Am               Em          Gbdim7         B7      Em
+ကမ္ဘာကြီးထဲမှာ အရာရာတိုင်း တိုးတက်ကြပါစေ ဒီမီးပွိုင့် အဟောင်းကြီးတော့ ခဏကျန်စေချင်ပါတယ်
+    Am             Em        Gbdim7              B7
+အဖေ နဲ့ အမေ့လိုအင်ဆန္ဒ ဖြည့်ရတဲ့အချိန် အမှန်တွေကို ခဏမျိုသိမ့်ထားတယ်…
+ 
 
-[Chorus]
-F                         C
-Welcome to the Hotel California
-      E7                                         Am
-Such a lovely place (such a lovely place), such a lovely face
-F                                       C
-There's plenty of room at the Hotel California
-   Dm                                       E7
-Any time of year, (any time of year) You can find it here...
+Em            Am    D                   G  B7
+မီးပွိုင့်ကြီးရေ နီလိုက်ဦး     အခုထိစျေးဦး  မပေါက်သေးလို့
+Em             Am                     C      B7         Em
+မီးပွိုင့်ပျက်ရင်ပိုပြီး  ရောင်းကောင်းလွန်းတယ် ကျွန်တော်ဟာ အတ္တကြီးတဲ့ ပန်းသည်ဗျို့..
+Em                     Am      D                G  B7
+မီးပွိုင့်ကြီးဟာ ကျွန်တော့ အသည်းနှလုံး    ကားများပိတ်ရင် ပျော်လို့မဆုံး
+ Em          Am                  C             B7         Em
+မီးစိမ်းပြချိန် ခဏပဲသတ်မှတ်ပေးကွယ် ကျွန်တော်ဟာ တစ်ဖက်တည်းကြည့်တဲ့ ပန်းသည်ဗျို့
+ 
+ 
+Em                        Am      D               Em
+ကျောင်းသွားတော့မယ့် ကျွန်တော့ ညီတစ်ယောက် မုန့်ဟင်းခါးစားဖို့ ၃၀၀ လောက်တဲ့
+Em                   Am        C    B7         Em
+စာများများတတ်ဖို့ ကျောင်းကို သွားတော့ကွယ် မင်းကငါ့ထက် အဖိုးတန်တယ်
+ 
+ 
+    Am              Em          Gbdim7           B7     Em
+ကမ္ဘာကြီးထဲမှာ အရာရာတိုင်း တိုးတက်ကြပါစေ ဒီမီးပွိုင့် အဟောင်းကြီးတော့ ခဏကျန်စေချင်ပါတယ်
+    Am             Em         Gbdim7              B7
+အဖေ နဲ့ အမေ့လိုအင်ဆန္ဒ ဖြည့်ရတဲ့အချိန် အမှန်တွေကို ခဏမျိုသိမ့်ထားတယ်…
+ 
+ 
+Em            Am    D                   G  B7
+မီးပွိုင့်ကြီးရေ နီလိုက်ဦး     အခုထိစျေးဦး  မပေါက်သေးလို့
+Em             Am                     C      B7        Em
+မီးပွိုင့်ပျက်ရင်ပိုပြီး  ရောင်းကောင်းလွန်းတယ် ကျွန်တော်ဟာ အတ္တကြီးတဲ့ ပန်းသည်ဗျို့..
+ Em                   Am       D                G B7
+မီးပွိုင့်ကြီးဟာ ကျွန်တော့ အသည်းနှလုံး    ကားများပိတ်ရင် ပျော်လို့မဆုံး
+Em            Am                  C            B7         Em
+မီးစိမ်းပြချိန် ခဏပဲသတ်မှတ်ပေးကွယ် ကျွန်တော်ဟာ တစ်ဖက်တည်းကြည့်တဲ့ ပန်းသည်ဗျို့
+ 
+ 
+       C      B7         Em
+ကျွန်တော်ဟာ အတ္တကြီးတဲ့ ပန်းသည် ဗျို့
 
-[Verse 3]
-Am                           E7
-Her mind is Tiffany twisted, She got the Mercedes bends
-G                                   D
-She got a lot of pretty pretty boys that she calls friends
-F                                 C
-How they danced in the courtyard, sweet summer sweat
-Dm                      E7
-Some dance to remember, some dance to forget
-
-[Verse 4]
-Am                           E7
-So I called up the captain; "Please bring me my wine" (he said)
-G                                     D
-"We haven't had that spirit here since 1969"
-F                                       C
-And still those voices are calling from far away
-Dm
-Wake you up in the middle of the night
-E7
-Just to hear them say...
-
-[Chorus]
-F                         C
-Welcome to the Hotel California
-      E7                                         Am
-Such a lovely place (such a lovely place), such a lovely face
-       F                             C
-They're livin' it up at the Hotel California
-      Dm                                               E7
-What a nice surprise (what a nice surprise), bring your alibis
-
-[Verse 5]
-Am                      E7
-Mirrors on the ceiling, the pink champagne on ice (and she said)
-G                               D
-We are all just prisoners here, of our own device
-F                             C
-And in the master's chambers, they gathered for the feast
-Dm
-They stab it with their steely knives, but they
-E7
-Just can't kill the beast
-
-[Verse 6]
-Am                           E7
-Last thing I remember, I was running for the door
-G                                     D
-I had to find the passage back to the place I was before
-F                                   C
-"Relax" said the night man, "we are programmed to receive,
-Dm
-You can check out any time you like
-E7
-But you can never leave"
-
-[Outro]
-Am E7 G D7 F C Dm E7  x5
 """
 
+let aloMaShi = """
+# Intro
+[A] [Gbm] [D] [E] [A] [Gbm] [E]
+
+# Verse 1
+[A]တစ်ယောက်တည်း ခံစားနေရ အမေ့သားတွေ သမီးတွေ [Gbm]လက်တွေပြ
+[D]ပုခုံးပေါ်ထမ်းတင်ထားတဲ့ အမေ့စကားတွေ နားထဲ[E]ကြားနေရ
+[A]ဘယ်လိုပဲ အခက်အခဲတွေရှိပါစေ အကုန်ဖြတ်ကျော်သွားမယ့် [Gbm]စိတ်ကိုထား
+[D]တစ်ယောက်ချင်းအကုန်ဝိုင်းတွန်းကြရင် ပိတ်ထားတဲ့ တံခါး[E]များပွင့်မှာပါ
+[D]သစ်တစ်ပင်ကောင်းမှ [E]ငှက်တစ်သောင်းနားလို့ရ[A]မှာပါ
+
+# Verse 2
+[A]အမှန်တရားကို ရရင်ရ ပြန်မရရင် အဆုံးထိသွား[Gbm]မှာပါ
+[D]သံပုံးတွေရှေ့မှာချ တစ္ဆေတစ်ယောက်လို မောင်းထုတ်သွား[E]မှာပါ
+[A]အနိုင်ရရင် ကချင်ကမယ် အနိုင်မရရင်သွေးတွေ [Gbm]ရဲနေမှ
+[D]ပိတ်ထားတဲ့နားတွေက [E]အကုန်လုံးအော်ပြောမှ ကြား[A]မှာပါ
+
+# Chorus
+[A]အာဏာရှင်မောင်းထုတ်ကြမယ် အလိုမရှိ အလိုမရှိ
+ပြည်သူတွေ ကန့်ကွက်ကြမယ် [Gbm]အလိုမရှိ အလိုမရှိ
+[D]သံပုံးတွေ တို့အတူတီး အမှန်တရားအတွက် ရဲရင့်[E]ဖို့လိုပြီ
+[A]အာဏာရှင်မောင်းထုတ်ကြမယ် အလိုမရှိ အလိုမရှိ
+ပြည်သူတွေ ကန့်ကွက်ကြမယ် [Gbm]အလိုမရှိ အလိုမရှိ
+သံပုံးတွေ တို့အတူတီး အမှန်တရားအတွက် ရဲရင့်[E]ဖို့လိုပြီ
+[D]ဆန္ဒဖော်ထုတ်ကြမယ် [E]အမှန်တရားဘက်မှာ ငါတို့ ရပ်တည်[A]ပြီ/မည်
+[A] [Gbm] [D] [E] [A] [Gbm] [D] [E]
+ဟေ့ ဟေ့ ဟေ့ ဟေ့ ဟေ့ ဟေ့ ဟေ့ ဟေ့
+
+# Verse 2
+
+# Chorus
+
+[D]ဆန္ဒဖော်ထုတ်ကြမယ် [E]အမှန်တရားဘက်မှာ ငါတို့ ရပ်တည်[A]ပြီ/မည်
+[A]ဒီမိုကရေစီ ရရှိရေး ဒို့အရေး ဒို့အရေး ဒီမိုကရေစီ ရရှိရေး ဒို့အရေး ဒို့အရေး
+[A]သပိတ် သပိတ် မှောက်မှောက် သပိတ် သပိတ် မှောက်မှောက်
+[A]ရုံးမတက်နဲ့ ရုံးထွက် ရုံးမတက်နဲ့ ရုံးထွက်
+[A]အရေးတော်ပုံ အောင်ရမည် အရေးတော်ပုံ အောင်ရမည် အရေးတော်ပုံ အောင်ရမည် ... Fade
+"""

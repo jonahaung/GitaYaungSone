@@ -21,7 +21,10 @@ struct SongParser {
         
         var lines = [Song.Line]()
         rawText.lines().forEach { rawLine in
-            if !rawLine.starts(with: "{") && !rawLine.starts(with: "#") {
+            if rawLine.starts(with: "#") {
+                let line = Song.Line(lineType: .Directive, chordTexts: [], comment: rawLine)
+                lines.append(line)
+            }else {
                 let line = parseLine(rawLine)
                 lines.append(line)
             }
@@ -29,43 +32,57 @@ struct SongParser {
         return lines
     }
     
-    static func song(_ string: String) -> Song {
-        var song = Song(rawText: string)
-        parseProperties(song: &song)
-        return song
-    }
-    
+
     private static func parseLine(_ textLine: String) -> Song.Line {
         var chordTexts = [Song.Line.ChordText]()
         
         RegularExpression.lyricsPattern.matches(in: textLine, range: textLine.nsRange()).forEach { result in
-            var chord = String()
+            var chordStr = String()
             var text = String()
             
             if let range = Range(result.range(at: 1), in: textLine) {
                 let bracked = String(textLine[range])
-                chord = RegularExpression.chordPattern.stringByReplacingMatches(in: bracked, withTemplate: "$1")
-                
+                chordStr = RegularExpression.chordPattern.stringByReplacingMatches(in: bracked, withTemplate: "$1")
             }
             
             if let range = Range(result.range(at: 2), in: textLine) {
                 text = String(textLine[range])
             }
             if text.isWhitespace {
-                let chordText = Song.Line.ChordText(chord: chord, text: text)
+                let chordText = Song.Line.ChordText(text: text, chord: Chord.chord(for: chordStr))
                 chordTexts.append(chordText)
             } else {
                 for (i, word) in text.words().enumerated() {
                     if i == 0 {
-                        let chordText = Song.Line.ChordText(chord: chord, text: word)
+                        let chordText = Song.Line.ChordText(text: word, chord: Chord.chord(for: chordStr))
                         chordTexts.append(chordText)
                     } else {
-                        chordTexts.append(.init(chord: String(), text: word))
+                        chordTexts.append(.init(text: word))
                     }
                 }
             }
         }
-        return Song.Line(chordTexts: chordTexts)
+        let hasChords = !chordTexts.map{$0.chord?.name ?? ""}.joined().isWhitespace
+        let hasTexts = !chordTexts.map{$0.text}.joined().isWhitespace
+        
+        let lineType: Song.Line.LineType
+        
+        if !hasChords && !hasTexts {
+            lineType = .Empty
+        } else if hasChords && !hasTexts {
+            lineType = .Chords
+        } else if hasTexts && !hasChords {
+            lineType = .Texts
+        } else {
+            lineType = .Lyric
+        }
+        return Song.Line(lineType: lineType, chordTexts: chordTexts)
+    }
+    
+    static func song(_ string: String) -> Song {
+        var song = Song(rawText: string)
+        parseProperties(song: &song)
+        return song
     }
     
     private static func parseProperties(_ textLine: String, song: inout Song) {
@@ -94,7 +111,6 @@ struct SongParser {
                         break
                     }
                 }
-                
             }
         }
     }

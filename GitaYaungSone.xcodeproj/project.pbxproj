@@ -121,7 +121,7 @@
 		4705841A28392E49004F08A7 /* HomeExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C228392E49004F08A7 /* HomeExplorerView.swift */; };
 		4705841B28392E49004F08A7 /* AuthenticationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C528392E49004F08A7 /* AuthenticationChecker.swift */; };
 		4705841C28392E49004F08A7 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C628392E49004F08A7 /* Authenticator.swift */; };
-		4705841D28392E49004F08A7 /* AuthenticateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C728392E49004F08A7 /* AuthenticateSession.swift */; };
+		4705841D28392E49004F08A7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C728392E49004F08A7 /* SignInView.swift */; };
 		4705841E28392E49004F08A7 /* ExplorerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583C928392E49004F08A7 /* ExplorerCell.swift */; };
 		4705841F28392E49004F08A7 /* ExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583CA28392E49004F08A7 /* ExplorerViewModel.swift */; };
 		4705842028392E49004F08A7 /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583CB28392E49004F08A7 /* ExplorerView.swift */; };
@@ -138,6 +138,7 @@
 		4705843A28392E49004F08A7 /* SongLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583F028392E49004F08A7 /* SongLineView.swift */; };
 		4705844128392FE7004F08A7 /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = 4705844028392FE7004F08A7 /* SwiftyTesseract */; };
 		472C55D9283D5C2C0019DFE1 /* ChordDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472C55D8283D5C2C0019DFE1 /* ChordDiagramView.swift */; };
+		4734904C283FF16E00DFF83D /* SettingsUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4734904B283FF16E00DFF83D /* SettingsUserProfile.swift */; };
 		47823A36283A6E640080EFAC /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47823A35283A6E640080EFAC /* Artist.swift */; };
 		47823A38283A72FB0080EFAC /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47823A37283A72FB0080EFAC /* Developer.swift */; };
 		47823A3A283A91A00080EFAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47823A39283A91A00080EFAC /* Launch Screen.storyboard */; };
@@ -262,7 +263,7 @@
 		470583C228392E49004F08A7 /* HomeExplorerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeExplorerView.swift; sourceTree = "<group>"; };
 		470583C528392E49004F08A7 /* AuthenticationChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationChecker.swift; sourceTree = "<group>"; };
 		470583C628392E49004F08A7 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
-		470583C728392E49004F08A7 /* AuthenticateSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateSession.swift; sourceTree = "<group>"; };
+		470583C728392E49004F08A7 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		470583C928392E49004F08A7 /* ExplorerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerCell.swift; sourceTree = "<group>"; };
 		470583CA28392E49004F08A7 /* ExplorerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerViewModel.swift; sourceTree = "<group>"; };
 		470583CB28392E49004F08A7 /* ExplorerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerView.swift; sourceTree = "<group>"; };
@@ -279,6 +280,7 @@
 		470583F028392E49004F08A7 /* SongLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongLineView.swift; sourceTree = "<group>"; };
 		4705843B28392E7A004F08A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		472C55D8283D5C2C0019DFE1 /* ChordDiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDiagramView.swift; sourceTree = "<group>"; };
+		4734904B283FF16E00DFF83D /* SettingsUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserProfile.swift; sourceTree = "<group>"; };
 		47823A35283A6E640080EFAC /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		47823A37283A72FB0080EFAC /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		47823A39283A91A00080EFAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 		4705831628392DB2004F08A7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4705833928392DB2004F08A7 /* X */,
 				4705831728392DB2004F08A7 /* Extensions */,
 				4705831C28392DB2004F08A7 /* Common */,
 				4705832228392DB2004F08A7 /* Pickers */,
@@ -475,7 +478,6 @@
 				4705833228392DB2004F08A7 /* PickerNavigationView.swift */,
 				4705833328392DB2004F08A7 /* FormCell.swift */,
 				4705833428392DB2004F08A7 /* AutoCompleteTextField */,
-				4705833928392DB2004F08A7 /* X */,
 				4705834028392DB2004F08A7 /* CancelButton.swift */,
 				47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */,
 			);
@@ -561,9 +563,9 @@
 		4705838628392E49004F08A7 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				470583B428392E49004F08A7 /* Home */,
 				470583C828392E49004F08A7 /* Explorer */,
 				470583B528392E49004F08A7 /* Search */,
-				470583B428392E49004F08A7 /* Home */,
 				470583DF28392E49004F08A7 /* ChordLibrary */,
 				4705838728392E49004F08A7 /* Saved */,
 				4705838F28392E49004F08A7 /* Creater */,
@@ -706,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				470583B328392E49004F08A7 /* SettingsView.swift */,
+				4734904A283FF14600DFF83D /* Sections */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -747,7 +750,7 @@
 			children = (
 				470583C428392E49004F08A7 /* AuthenticationChecker */,
 				470583C628392E49004F08A7 /* Authenticator.swift */,
-				470583C728392E49004F08A7 /* AuthenticateSession.swift */,
+				470583C728392E49004F08A7 /* SignInView.swift */,
 			);
 			path = Authenticate;
 			sourceTree = "<group>";
@@ -763,7 +766,9 @@
 		470583C828392E49004F08A7 /* Explorer */ = {
 			isa = PBXGroup;
 			children = (
-				4794AE41283B6AF4005020C1 /* Song */,
+				470583CB28392E49004F08A7 /* ExplorerView.swift */,
+				470583CA28392E49004F08A7 /* ExplorerViewModel.swift */,
+				470583C928392E49004F08A7 /* ExplorerCell.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -793,8 +798,8 @@
 			isa = PBXGroup;
 			children = (
 				470583ED28392E49004F08A7 /* ViewerSessionView.swift */,
-				47E6EB71283D3D2F00E0EB68 /* Views */,
 				470583EF28392E49004F08A7 /* ViewerViewModel.swift */,
+				47E6EB71283D3D2F00E0EB68 /* Views */,
 				470583E928392E49004F08A7 /* AttributedTextView */,
 			);
 			path = Viewer;
@@ -809,14 +814,12 @@
 			path = AttributedTextView;
 			sourceTree = "<group>";
 		};
-		4794AE41283B6AF4005020C1 /* Song */ = {
+		4734904A283FF14600DFF83D /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				470583C928392E49004F08A7 /* ExplorerCell.swift */,
-				470583CA28392E49004F08A7 /* ExplorerViewModel.swift */,
-				470583CB28392E49004F08A7 /* ExplorerView.swift */,
+				4734904B283FF16E00DFF83D /* SettingsUserProfile.swift */,
 			);
-			path = Song;
+			path = Sections;
 			sourceTree = "<group>";
 		};
 		47E6EB71283D3D2F00E0EB68 /* Views */ = {
@@ -928,7 +931,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4705841D28392E49004F08A7 /* AuthenticateSession.swift in Sources */,
+				4705841D28392E49004F08A7 /* SignInView.swift in Sources */,
 				4794AE49283B8049005020C1 /* XSectionbTitleView.swift in Sources */,
 				4705836628392DB3004F08A7 /* XColor.swift in Sources */,
 				4705835C28392DB3004F08A7 /* PickerNavigationView.swift in Sources */,
@@ -1013,6 +1016,7 @@
 				4705834728392DB3004F08A7 /* +UITextView.swift in Sources */,
 				4705841128392E49004F08A7 /* RemoteSearchContentView.swift in Sources */,
 				4705842028392E49004F08A7 /* ExplorerView.swift in Sources */,
+				4734904C283FF16E00DFF83D /* SettingsUserProfile.swift in Sources */,
 				4705841628392E49004F08A7 /* HomeSessionNavItemsView.swift in Sources */,
 				470583F828392E49004F08A7 /* CreaterForm.swift in Sources */,
 				4705835128392DB3004F08A7 /* ImagePicker.swift in Sources */,

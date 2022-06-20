@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public struct Chord {
+public struct Chord: Hashable {
 
     let key: Key
     let suffix: Suffix
@@ -16,7 +16,7 @@ public struct Chord {
     }
     
     public enum Key: String, CaseIterable, Codable, Identifiable {
-        public var id: Key { self }
+        public var id: String { self.rawValue }
         case c = "C"
         case cSharp = "C#"
         case d = "D"
@@ -32,7 +32,7 @@ public struct Chord {
     }
 
     public enum Suffix: String, CaseIterable, Codable, Identifiable {
-        public var id: Suffix { self }
+        public var id: String { self.rawValue }
         case major = "major"
         case minor = "minor"
         case dim = "dim"

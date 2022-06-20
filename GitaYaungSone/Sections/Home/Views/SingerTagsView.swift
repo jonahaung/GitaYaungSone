@@ -19,7 +19,7 @@ struct SingerTagsView: View {
                     VStack {
                         Text(artist.name)
                             .font(.title3)
-                            .foregroundColor(XColor.Light.random())
+                            .foregroundColor(XColor.randomColor(seed: artist.name).color)
                     }
                     .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
                     .background(Color(uiColor: .separator).cornerRadius(12))

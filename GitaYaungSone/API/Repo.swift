@@ -44,7 +44,8 @@ struct Repo {
             let snapshot = try await query.getDocuments()
             return snapshot.documents.compactMap { try? $0.data(as: T.self)}
         } catch {
-            fatalError()
+            print(error)
+            return []
         }
     }
 }

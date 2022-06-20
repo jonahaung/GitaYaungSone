@@ -46,7 +46,12 @@ extension Chord {
         if valueKey == "G#" {
             valueKey = "Ab"
         }
-        
+        if valueKey == "Gb" {
+            valueKey = "F#"
+        }
+        if valueKey == "Db" {
+            valueKey = "C#"
+        }
         guard let key = Chord.Key(rawValue: String(valueKey)) else {
             return nil
         }

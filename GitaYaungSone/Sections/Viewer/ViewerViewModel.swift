@@ -15,6 +15,7 @@ final class ViewerViewModel: ObservableObject {
     init(_ song: Song) {
         self.song = song
     }
+    
     func  task() async {
         song.popularity += 1
         SongRepo.shared.update(song)
@@ -28,13 +29,20 @@ final class ViewerViewModel: ObservableObject {
 extension Song {
     
     struct Line: Hashable, Identifiable {
+        
+        enum LineType {
+            case Directive, Lyric, Texts, Chords, Empty
+        }
+        
         let id = UUID()
-        var chordTexts = [ChordText]()
+        let lineType: LineType
+        var chordTexts: [ChordText] = []
+        var comment: String? = nil
         
         struct ChordText: Hashable, Identifiable {
             let id = UUID()
-            let chord: String
-            let text: String
+            var text: String
+            var chord: Chord?
         }
     }
     
@@ -42,11 +50,11 @@ extension Song {
         SongParser.songLines(rawText: rawText)
     }
     
-    func attributedText() -> NSMutableAttributedString {
+    func attributedText(isDark: Bool = true) -> NSMutableAttributedString {
         func titleAttributedText() -> NSMutableAttributedString {
             let mutable = NSMutableAttributedString()
-            mutable.append(.init(string: title, attributes: [.font: XFont.title(for: title), .foregroundColor: UIColor.label]))
-            mutable.append(.init(string: artist.newLine.prepending("\n"), attributes: [.font: XFont.universal(for: .footnote), .foregroundColor: UIColor.secondaryLabel]))
+            mutable.append(.init(string: title, attributes: [.font: XFont.title(for: title), .foregroundColor: isDark ? UIColor.label : .black]))
+            mutable.append(.init(string: artist.newLine.prepending("\n"), attributes: [.font: XFont.universal(for: .footnote), .foregroundColor: isDark ? UIColor.secondaryLabel : .darkGray]))
             return mutable
         }
         
@@ -58,18 +66,19 @@ extension Song {
         self.lines().forEach { line in
             var chordLine = String()
             var wordLine = String()
-            
             line.chordTexts.forEach { part in
-                chordLine += part.chord
-                wordLine += part.text.whiteSpace
+                if let chord = part.chord {
+                    chordLine += chord.name
+                }
                 
+                wordLine += part.text.whiteSpace
                 while chordLine.widthOfString(usingFont: cFont) + cFont.pointSize < wordLine.widthOfString(usingFont: font) {
                     chordLine += " "
                 }
                 chordLine += " "
             }
-            attrText.append(.init(string: chordLine.newLine, attributes: [.font: cFont, .foregroundColor: UIColor.systemOrange]))
-            attrText.append(.init(string: wordLine.newLine, attributes: [.font: font, .foregroundColor: UIColor.label]))
+            attrText.append(.init(string: chordLine.newLine, attributes: [.font: cFont, .foregroundColor: isDark ? UIColor.systemOrange : UIColor.systemPink]))
+            attrText.append(.init(string: wordLine.newLine, attributes: [.font: font, .foregroundColor: isDark ? UIColor.label : .black]))
         }
         attrText.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.nonLineBreak, range: rawText.nsRange())
         return attrText

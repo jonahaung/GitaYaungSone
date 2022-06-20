@@ -36,6 +36,7 @@ struct ViewerSessionView: View {
                 
                 Divider()
                     .padding()
+                
                 bottomBar()
             }
         }
@@ -53,7 +54,7 @@ struct ViewerSessionView: View {
         HStack {
             XIcon(.square_and_arrow_up)
             XIcon(.heart_fill).foregroundColor(.pink)
-            Text("PDF").tapToPresent(PdfView(attributedText: viewModel.song.attributedText()))
+            Text("PDF").tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false)).preferredColorScheme(.light))
             Text("Text").tapToPresent(ViewerAttributedTextView(song: viewModel.song))
         }
     }
