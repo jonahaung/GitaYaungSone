@@ -14,12 +14,6 @@ struct HomeSessionNavItemsView<Content: View>: View {
     var body: some View {
         content()
             .navigationTitle("Home")
-            .navigationBarItems(leading: AppLogoView(fontSize: 24), trailing: trailingItems)
-    }
-    
-    private var trailingItems: some View {
-        Label("Add", systemImage: XIcon.Icon.plus.systemName)
-            .tapToPresent(CreaterSessionView(), .fullScreen)
-            
+            .navigationBarItems(leading: AppLogoView(fontSize: 24))
     }
 }

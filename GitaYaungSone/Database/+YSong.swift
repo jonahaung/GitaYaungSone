@@ -12,21 +12,24 @@ extension YSong {
     var song: Song {
         Song(ySong: self)
     }
-    private class func save(song: Song) -> YSong {
+    class func save(song: Song) -> YSong {
         let context = PersistenceController.shared.context
         let x = YSong(context: context)
+        x.id = song.id
         x.title = song.title
         x.artist = song.artist
-        x.rawText = song.rawText
-        x.key = song.key
-        x.album = song.album
+        x.artists = song.artists
         x.composer = song.composer
-        x.date = Date()
-        x.genre = song.genre
-        x.id = song.id
+        x.album = song.album
+        x.key = song.key
         x.tempo = song.tempo
+        x.genre = song.genre
         x.mediaLink = song.mediaLink
-        x.lastViewed = Date()
+        x.rawText = song.rawText
+        x.created = song.created
+        x.createrID = song.createrID
+        x.popularity = Int16(song.popularity)
+        PersistenceController.shared.save()
         return x
     }
     
@@ -40,17 +43,7 @@ extension YSong {
             fatalError()
         }
     }
-    
-    class func create(song: Song) {
-        let sameItems = sameItems(title: song.title, artist: song.artist)
-        let sorted = sameItems.sorted { one, two in
-            one.version > two.version
-        }
-        let x = YSong.save(song: song)
-        x.version = (sorted.first?.version ?? -1) + 1
-        PersistenceController.shared.save()
-    }
-    
+
     class func sameItems(title: String, artist: String) -> [YSong] {
         let context = PersistenceController.shared.context
         let request = NSFetchRequest<YSong>(entityName: YSong.entity().name!)
@@ -63,11 +56,10 @@ extension YSong {
             fatalError()
         }
     }
-    class func cLyrics(for id: String) -> YSong? {
+    class func hasSaved(for id: String) -> YSong? {
         let context = PersistenceController.shared.context
         let request = NSFetchRequest<YSong>(entityName: YSong.entity().name!)
         request.predicate = NSPredicate(format: "id == %@", id)
-        request.sortDescriptors = [NSSortDescriptor(key: "lastViewed", ascending: false)]
         request.fetchLimit = 1
         do {
             return try context.fetch(request).first
@@ -110,9 +102,9 @@ extension YSong {
 
 extension Song {
     init(ySong: YSong) {
-        id = ySong.id.str
+        id = ySong.id
         title = ySong.title.str
-        artists = [ySong.artist.str]
+        artists = ySong.artists ?? []
         composer = ySong.composer.str
         album = ySong.album.str
         key = ySong.key.str
@@ -120,8 +112,9 @@ extension Song {
         genre = ySong.genre.str
         mediaLink = ySong.mediaLink.str
         rawText = ySong.rawText.str
-        created = ySong.date ?? Date()
-        createrID = "aungkomin"
+        created = ySong.created ?? Date()
+        createrID = ySong.createrID.str
         artist = ySong.artist.str
+        popularity = Int(ySong.popularity)
     }
 }

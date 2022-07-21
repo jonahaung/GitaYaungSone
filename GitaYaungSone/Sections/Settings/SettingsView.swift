@@ -30,7 +30,7 @@ struct SettingsView: View {
             
             Section {
                 Button("Developer Action") {
-                    Developer.upDateArtists()
+                    
                 }
             }
         }

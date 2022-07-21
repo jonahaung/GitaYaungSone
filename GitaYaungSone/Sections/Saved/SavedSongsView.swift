@@ -11,7 +11,7 @@ import CoreData
 struct SavedSongsView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \YSong.lastViewed, ascending: true)],animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \YSong.popularity, ascending: true)],animation: .default)
     private var songs: FetchedResults<YSong>
     @AppStorage("SavedSongsView.Arrangement") private var currentArrangement: Arrangement = Arrangement.artist
     var allSong: AllSong { .init(Array(songs).map(Song.init))}

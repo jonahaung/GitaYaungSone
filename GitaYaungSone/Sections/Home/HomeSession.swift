@@ -15,6 +15,7 @@ struct HomeSession: View {
                     LazyVStack {
                         SingerTagsView()
                         HomeExplorerView()
+                        AlbumTagsView()
                         GenreTagsView()
                     }
                 }

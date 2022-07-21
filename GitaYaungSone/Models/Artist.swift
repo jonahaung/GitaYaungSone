@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+
 struct Artist: Codable, Identifiable {
-    var id: String { name }
+    @DocumentID var id: String?
     let name: String
-    var songs = 0
     var albums = 0
     var popularity = 0
 }

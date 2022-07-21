@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 struct Song: Codable, Identifiable {
-    var id = UUID().uuidString
+    @DocumentID var id: String?
     var title = String()
     var artists = [String]()
     var composer = String()

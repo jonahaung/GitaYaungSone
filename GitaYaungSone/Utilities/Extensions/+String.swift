@@ -6,6 +6,21 @@
 //
 
 import UIKit
+extension String {
+
+    var bracked: String {
+        "[\(self)]"
+    }
+
+    var localisedSuffix: String {
+        if self == "major" {
+            return String()
+        } else if self == "minor" {
+            return "m"
+        }
+        return self
+    }
+}
 
 extension String: Identifiable {
     public var id: String { self }
