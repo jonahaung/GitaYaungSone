@@ -14,7 +14,8 @@ struct HomeSession: View {
                 RemoteSearchableView {
                     LazyVStack {
                         SingerTagsView()
-                        HomeExplorerView()
+                        PopularSongsView()
+                        PopularAlbumsView()
                         GenreTagsView()
                     }
                 }

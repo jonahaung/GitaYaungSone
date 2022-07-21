@@ -29,7 +29,6 @@ struct SingerTagsView: View {
                 .frame(minHeight: 250)
                 .padding(.leading)
                 .scrollOptions(direction: .horizontal)
-                
             }
         }
         .task {
