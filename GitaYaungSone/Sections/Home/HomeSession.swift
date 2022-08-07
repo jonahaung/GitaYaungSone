@@ -20,6 +20,9 @@ struct HomeSession: View {
                     }
                 }
             }
+            .background(Image("disc")
+            .resizable()
+            .scaledToFit())
         }
         .embeddedInNavigationView()
     }

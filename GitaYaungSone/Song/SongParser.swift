@@ -18,7 +18,6 @@ struct SongParser {
     }
     
     static func songLines(rawText: String) -> [Song.Line] {
-        
         var lines = [Song.Line]()
         rawText.lines().forEach { rawLine in
             if rawLine.starts(with: "#") {

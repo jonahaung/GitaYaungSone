@@ -15,9 +15,9 @@ struct PopularSongsView: View {
         XSectionTitleView(title: "Suggestions") {
             XSectionView {
                 VStack(spacing: 10) {
-                    ForEach(viewModel.songs) { song in
+                    ForEach(viewModel.displayingSong) { song in
                         ExplorerCell(song: song)
-                        if song.id != viewModel.songs.last?.id {
+                        if song.id != viewModel.displayingSong.last?.id {
                             Divider()
                         }
                     }

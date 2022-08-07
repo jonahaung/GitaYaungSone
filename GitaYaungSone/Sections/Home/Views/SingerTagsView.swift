@@ -23,7 +23,7 @@ struct SingerTagsView: View {
                     }
                     .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
                     .background(Color(uiColor: .separator).cornerRadius(12))
-                    .tapToPush(ExplorerView(filters: [.artist(artist.name)]))
+                    .tapToPush(ArtistView(artist: artist))
                 }
                 .gridStyle(columns: 6, spacing: 3)
                 .frame(minHeight: 250)

@@ -15,18 +15,24 @@ struct RemoteSearchContentView: View {
     var body: some View {
         if isSearching {
             List {
-                
                 if !viewModel.artists.isEmpty {
                     Section("Artists") {
                         ForEach(viewModel.artists) {
-                            SearchResultCell(result: $0)
+                            ArtistCell(artist: $0)
+                        }
+                    }
+                }
+                if !viewModel.albums.isEmpty {
+                    Section("Albums") {
+                        ForEach(viewModel.albums) {
+                            AlbumCell(album: $0)
                         }
                     }
                 }
                 if !viewModel.songs.isEmpty {
                     Section("Songs") {
                         ForEach(viewModel.songs) {
-                            SearchResultCell(result: $0)
+                            ExplorerCell(song: $0)
                         }
                     }
                 }

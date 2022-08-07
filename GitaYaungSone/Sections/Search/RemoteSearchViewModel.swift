@@ -9,9 +9,13 @@ import SwiftUI
 import Combine
 
 final class RemoteSearchViewModel: ObservableObject {
-    
-    @Published var songs = [Song.QueryFilter]()
-    @Published var artists = [Song.QueryFilter]()
+
+    var songs = [Song]()
+    var songItems = [Song.QueryFilter]()
+    var artists = [Artist]()
+    var artistItems = [Song.QueryFilter]()
+    var albums = [Album]()
+    var albumItems = [Song.QueryFilter]()
     
     @Published var searchText = String()
     
@@ -31,10 +35,16 @@ final class RemoteSearchViewModel: ObservableObject {
             guard let self = self else { return }
             let songs = await SongRepo.shared.search([.title(string)], limit: 8)
             let artists = await ArtistRepo.shared.search([.name(string)], limit: 10)
+            let albums = await AlbumRepo.shared.search([.name(string)], limit: 10)
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.songs = songs.map{.title($0.title)}
-                self.artists = artists.map{.artist($0.name)}
+                self.artists = artists
+                self.albums = albums
+                self.songs = songs
+                self.songItems = songs.map{.title($0.title)}
+                self.artistItems = artists.map{.artist($0.name)}
+                self.albumItems = albums.map{.album($0.name)}
+                self.objectWillChange.send()
             }
         }
     }

@@ -24,10 +24,13 @@ class SongRepo {
         Repo.remove(item, to: reference, completion: completion)
     }
     
-    func fetch(_ queryItems: [Song.QueryFilter]) async -> [Song] {
+    func fetch(_ queryItems: [Song.QueryFilter], limit: Int = 0) async -> [Song] {
         var query = reference as Query
         queryItems.forEach {
             query = query.whereField($0.key, isEqualTo: $0.value)
+        }
+        if limit > 0 {
+            query = query.limit(to: limit)
         }
         return await Repo.fetch(query: query)
     }
