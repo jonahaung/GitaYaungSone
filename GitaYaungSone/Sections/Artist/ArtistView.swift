@@ -17,7 +17,6 @@ struct ArtistView: View {
             if viewModel.searchText.isEmpty {
                 Section(header: profilePhotoView()) {}
             }
-
             let albums = viewModel.allSongs.albums
             if !albums.isEmpty {
                 Section("Albums") {
@@ -54,19 +53,20 @@ struct ArtistView: View {
 
     private func profilePhotoView() -> some View {
         VStack {
-            AsyncImage(url: URL(string: artist.photoURL ?? "https://media.kidadl.com/60222d821b08477d67613564_quotes_from_famous_infj_musicians_f8ad748170.jpeg"),
-                content: { image in
-                    image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(5)
-                }, placeholder: {
-                    VStack {
-                        ProgressView()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(minHeight: 250)
-                })
+            let url = URL(string: artist.photoURL ?? "https://media.kidadl.com/60222d821b08477d67613564_quotes_from_famous_infj_musicians_f8ad748170.jpeg")
+            CachedAsyncImage(url: url) { image in
+                image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .cornerRadius(5)
+            } placeholder: {
+                VStack {
+                    ProgressView()
+                }
+                .frame(maxWidth: .infinity)
+                .frame(minHeight: 250)
+            }
+
             HStack {
                 XIcon(.heart_fill)
                     .foregroundColor(.pink)

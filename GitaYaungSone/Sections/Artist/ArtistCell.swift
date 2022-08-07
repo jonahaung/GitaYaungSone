@@ -11,7 +11,7 @@ struct ArtistCell: View {
     let artist: Artist
     var body: some View {
         HStack {
-            XIcon(.music_mic)
+            XIcon(.mic_fill)
                 .foregroundColor(XColor.UI.blue)
             Text(artist.name)
                 .foregroundColor(.primary)

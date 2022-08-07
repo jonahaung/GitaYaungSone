@@ -111,6 +111,7 @@
 		4794AE45283B7A23005020C1 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE44283B7A23005020C1 /* Album.swift */; };
 		4794AE47283B7A7E005020C1 /* AlbumRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE46283B7A7E005020C1 /* AlbumRepo.swift */; };
 		4794AE49283B8049005020C1 /* XSectionbTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AE48283B8049005020C1 /* XSectionbTitleView.swift */; };
+		47AE9E1328A06B9E004F57C6 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AE9E1228A06B9E004F57C6 /* CachedAsyncImage.swift */; };
 		47E6EB70283D32C800E0EB68 /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */; };
 		761B65A3A7A2B8EF226D5942 /* Pods_GitaYaungSone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0CA3B69AFA1CD238B87474 /* Pods_GitaYaungSone.framework */; };
 /* End PBXBuildFile section */
@@ -222,6 +223,7 @@
 		4794AE44283B7A23005020C1 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		4794AE46283B7A7E005020C1 /* AlbumRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepo.swift; sourceTree = "<group>"; };
 		4794AE48283B8049005020C1 /* XSectionbTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSectionbTitleView.swift; sourceTree = "<group>"; };
+		47AE9E1228A06B9E004F57C6 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		47CF4ED5288920C700812E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		47E6EB6F283D32C800E0EB68 /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C613E4404AE771197A6511E7 /* Pods-GitaYaungSone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitaYaungSone.debug.xcconfig"; path = "Target Support Files/Pods-GitaYaungSone/Pods-GitaYaungSone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				4705832A28392DB2004F08A7 /* XScrollView.swift */,
 				4705832B28392DB2004F08A7 /* ActivityView */,
 				4705832F28392DB2004F08A7 /* ComfirmButton.swift */,
+				47AE9E1228A06B9E004F57C6 /* CachedAsyncImage.swift */,
 				4705833028392DB2004F08A7 /* PdfView.swift */,
 				4705833128392DB2004F08A7 /* AutoWrap.swift */,
 				4705833228392DB2004F08A7 /* PickerNavigationView.swift */,
@@ -856,6 +859,7 @@
 				4705836B28392DB3004F08A7 /* TapToPresentStyle.swift in Sources */,
 				4705837528392DC8004F08A7 /* AppSettings.swift in Sources */,
 				4705842F28392E49004F08A7 /* LibraryChord.swift in Sources */,
+				47AE9E1328A06B9E004F57C6 /* CachedAsyncImage.swift in Sources */,
 				4705835A28392DB3004F08A7 /* PdfView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

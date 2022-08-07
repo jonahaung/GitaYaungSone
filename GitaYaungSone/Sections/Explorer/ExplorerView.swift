@@ -31,7 +31,7 @@ struct ExplorerView: View {
                 sectionFooterView()
             }
         }
-        .searchable(text: $viewModel.searchText, prompt: "Filter from \(filters.first?.value ?? "list")")
+        .searchable(text: $viewModel.searchText, prompt: "\(filters.first?.value ?? "Search")")
         .navigationTitle(filters.map{$0.key}.joined(separator: " "))
         .task {
             await viewModel.fetch(for: filters)
@@ -73,9 +73,6 @@ struct ExplorerView: View {
     }
     private func segmentedControl() -> some View {
         VStack {
-            if let first = filters.first {
-                Text(first.value)
-            }
             Picker("Arrangement", selection: $currentArrangement) {
                 ForEach(Arrangement.allCases, id: \.self) { arrangement in
                     Text(arrangement.rawValue)

@@ -13,7 +13,7 @@ struct AlbumCell: View {
 
     var body: some View {
         HStack {
-            XIcon(.music_note_list)
+            XIcon(.square_stack_3d_down_right)
                 .foregroundColor(XColor.UI.gray)
             Text(album.name)
                 .lineLimit(1)

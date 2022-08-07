@@ -45,11 +45,16 @@ struct ViewerSessionView: View {
             await viewModel.task()
         }
     }
-    
+
     private func bottomBar() -> some View {
         HStack(spacing: 10) {
-            XIcon(.square_and_arrow_up)
-            Text("PDF").tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false)).preferredColorScheme(.light))
+            XIcon(.info_circle_fill)
+                .aspectRatio(1, contentMode: .fit)
+                .tapToPush(SongInfoView(song: viewModel.song))
+            Text("PDF")
+                .tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false))
+                    .preferredColorScheme(.light))
+            HasSavedButton(song: viewModel.song)
         }
     }
 }
@@ -58,11 +63,12 @@ extension ViewerSessionView {
     
     private var trailingItems: some View {
         HStack {
-            HasSavedButton(song: viewModel.song)
-            XIcon(.info_circle_fill)
-                .aspectRatio(1, contentMode: .fit)
-                .tapToPush(SongInfoView(song: viewModel.song))
+            Text(viewModel.song.artist)
+                .foregroundStyle(.secondary)
+                .tapToPush(ExplorerView(filters: [.artist(viewModel.song.artist)]))
+            Text(viewModel.song.key)
         }
 
     }
+    
 }
