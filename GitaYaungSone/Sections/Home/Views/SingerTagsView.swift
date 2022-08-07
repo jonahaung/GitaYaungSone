@@ -22,7 +22,7 @@ struct SingerTagsView: View {
                             .foregroundColor(XColor.randomColor(seed: artist.name).color)
                     }
                     .padding(.init(top: 5, leading: 13, bottom: 5, trailing: 13))
-                    .background(Color(uiColor: .separator).cornerRadius(12))
+                    .background(Color(uiColor: .opaqueSeparator).cornerRadius(12))
                     .tapToPush(ArtistView(artist: artist))
                 }
                 .gridStyle(columns: 6, spacing: 3)

@@ -40,7 +40,6 @@
 		4705835528392DB3004F08A7 /* XScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705832A28392DB2004F08A7 /* XScrollView.swift */; };
 		4705835628392DB3004F08A7 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705832C28392DB2004F08A7 /* ActivityItem.swift */; };
 		4705835728392DB3004F08A7 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705832D28392DB2004F08A7 /* ActivityView.swift */; };
-		4705835828392DB3004F08A7 /* HtmlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705832E28392DB2004F08A7 /* HtmlView.swift */; };
 		4705835928392DB3004F08A7 /* ComfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705832F28392DB2004F08A7 /* ComfirmButton.swift */; };
 		4705835A28392DB3004F08A7 /* PdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705833028392DB2004F08A7 /* PdfView.swift */; };
 		4705835B28392DB3004F08A7 /* AutoWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705833128392DB2004F08A7 /* AutoWrap.swift */; };
@@ -154,7 +153,6 @@
 		4705832A28392DB2004F08A7 /* XScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XScrollView.swift; sourceTree = "<group>"; };
 		4705832C28392DB2004F08A7 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		4705832D28392DB2004F08A7 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		4705832E28392DB2004F08A7 /* HtmlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlView.swift; sourceTree = "<group>"; };
 		4705832F28392DB2004F08A7 /* ComfirmButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComfirmButton.swift; sourceTree = "<group>"; };
 		4705833028392DB2004F08A7 /* PdfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfView.swift; sourceTree = "<group>"; };
 		4705833128392DB2004F08A7 /* AutoWrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoWrap.swift; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 				4794AE48283B8049005020C1 /* XSectionbTitleView.swift */,
 				4705832A28392DB2004F08A7 /* XScrollView.swift */,
 				4705832B28392DB2004F08A7 /* ActivityView */,
-				4705832E28392DB2004F08A7 /* HtmlView.swift */,
 				4705832F28392DB2004F08A7 /* ComfirmButton.swift */,
 				4705833028392DB2004F08A7 /* PdfView.swift */,
 				4705833128392DB2004F08A7 /* AutoWrap.swift */,
@@ -835,7 +832,6 @@
 				47E6EB70283D32C800E0EB68 /* AppLogoView.swift in Sources */,
 				4705836728392DB3004F08A7 /* XConstants.swift in Sources */,
 				47174ED4289F58DE008673FA /* ArtistView.swift in Sources */,
-				4705835828392DB3004F08A7 /* HtmlView.swift in Sources */,
 				4705841F28392E49004F08A7 /* ExplorerViewModel.swift in Sources */,
 				4705843628392E49004F08A7 /* ViewerAttributedTextView.swift in Sources */,
 				4705843428392E49004F08A7 /* FretboardView.swift in Sources */,

@@ -11,18 +11,15 @@ import Combine
 final class RemoteSearchViewModel: ObservableObject {
 
     var songs = [Song]()
-    var songItems = [Song.QueryFilter]()
     var artists = [Artist]()
-    var artistItems = [Song.QueryFilter]()
     var albums = [Album]()
-    var albumItems = [Song.QueryFilter]()
     
     @Published var searchText = String()
     
     private var subscription: Set<AnyCancellable> = []
     init() {
         $searchText
-            .debounce(for: .seconds(0.2), scheduler: DispatchQueue.main)
+            .debounce(for: .seconds(0.1), scheduler: DispatchQueue.main)
             .filter{ !$0.isWhitespace }
             .sink { [weak self] text in
                 self?.searchItems(text)
@@ -41,9 +38,6 @@ final class RemoteSearchViewModel: ObservableObject {
                 self.artists = artists
                 self.albums = albums
                 self.songs = songs
-                self.songItems = songs.map{.title($0.title)}
-                self.artistItems = artists.map{.artist($0.name)}
-                self.albumItems = albums.map{.album($0.name)}
                 self.objectWillChange.send()
             }
         }

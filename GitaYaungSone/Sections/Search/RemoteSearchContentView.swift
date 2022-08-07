@@ -19,6 +19,7 @@ struct RemoteSearchContentView: View {
                     Section("Artists") {
                         ForEach(viewModel.artists) {
                             ArtistCell(artist: $0)
+
                         }
                     }
                 }

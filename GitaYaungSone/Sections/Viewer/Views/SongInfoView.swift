@@ -8,26 +8,38 @@
 import SwiftUI
 
 struct SongInfoView: View {
+
     let song: Song
-    
+    @State private var artist: Artist?
+    @State private var album: Album?
+
     var body: some View {
         List {
             Section {
-                FormCell2 {
-                    Text("Artist")
-                } right: {
-                    Text(song.artist)
+                if let artist = self.artist {
+                    FormCell2 {
+                        Text("Artist")
+                    } right: {
+                        Text(song.artist)
+                    }
+                    .tapToPush(ArtistView(artist: artist))
                 }
-                FormCell2 {
-                    Text("Album")
-                } right: {
-                    Text(song.album)
+                
+                if let album = album {
+                    FormCell2 {
+                        Text("Album")
+                    } right: {
+                        Text(song.album)
+                    }
+                    .tapToPush(AlbumView(album: album))
                 }
+
                 FormCell2 {
                     Text("Composer")
                 } right: {
                     Text(song.composer)
                 }
+                .tapToPush(ExplorerView(filters: [.composer(song.composer)]))
             }
             
             Section {
@@ -49,6 +61,7 @@ struct SongInfoView: View {
                 } right: {
                     Text(song.genre)
                 }
+                .tapToPush(ExplorerView(filters: [.genre(song.genre)]))
                 FormCell2 {
                     Text("Created")
                 } right: {
@@ -63,5 +76,9 @@ struct SongInfoView: View {
         }
         .navigationTitle("Info")
         .embeddedInNavigationView(showCancelButton: true)
+        .task {
+            artist = await ArtistRepo.shared.fetch([.name(song.artist)]).first
+            album = await AlbumRepo.shared.fetch([.name(song.album)]).first
+        }
     }
 }

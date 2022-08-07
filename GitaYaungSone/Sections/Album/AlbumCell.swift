@@ -16,6 +16,7 @@ struct AlbumCell: View {
             XIcon(.music_quarternote_3)
                 .foregroundColor(XColor.UI.gray)
             Text(album.name)
+                .lineLimit(1)
                 .foregroundColor(.primary)
                 .font(XFont.universal(for: .body).font)
             Spacer()
@@ -28,7 +29,7 @@ struct AlbumCell: View {
         Group {
             if let artist = album.artist {
                 Text(artist)
-                    .font(.subheadline)
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
             }
         }

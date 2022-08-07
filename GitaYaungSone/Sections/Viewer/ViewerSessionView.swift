@@ -21,18 +21,14 @@ struct ViewerSessionView: View {
                 Section {
                     Text(viewModel.song.title.whiteSpace)
                         .font(XFont.title(for: viewModel.song.title).font)
-                    +
-                    Text(viewModel.song.artist.nonLineBreak)
-                        .font(XFont.footnote(for: viewModel.song.artist).font)
                 }
-                .foregroundColor(.orange)
                 
                 Section {
                     ForEach(viewModel.song.lines()) {
                         SongLineView(line: $0)
                     }
                 }
-                .font(XFont.body(for: viewModel.song.rawText).font)
+                .font(XFont.universal(for: .subheadline).font)
                 
                 Divider()
                     .padding()
@@ -53,11 +49,7 @@ struct ViewerSessionView: View {
     private func bottomBar() -> some View {
         HStack(spacing: 10) {
             XIcon(.square_and_arrow_up)
-
-
-            
             Text("PDF").tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false)).preferredColorScheme(.light))
-            Text("Text").tapToPresent(ViewerAttributedTextView(song: viewModel.song))
         }
     }
 }

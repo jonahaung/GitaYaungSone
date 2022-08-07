@@ -30,13 +30,18 @@ struct ArtistView: View {
                     DisclosureGroup {
                         ForEach(album.songs) {
                             SongListCell(song: $0)
-                                .font(XFont.universal(for: .body).font)
                                 .foregroundStyle(.secondary)
                         }
                     } label: {
                         Text(album.name.isWhitespace ? "No Album" : album.name)
                             .font(XFont.universal(for: .callout).font)
                     }
+                }
+            }
+
+            Section("Songs") {
+                ForEach(viewModel.allSongs.songs) { song in
+                    SongListCell(song: song)
                 }
             }
         }
