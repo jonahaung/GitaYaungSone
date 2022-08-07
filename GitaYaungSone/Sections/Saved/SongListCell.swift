@@ -16,6 +16,7 @@ struct SongListCell: View {
             XIcon(.music_note)
                 .foregroundColor(.brown)
             Text(song.title)
+                .foregroundColor(.secondary)
             Spacer()
         }
         .font(XFont.universal(for: .body).font)

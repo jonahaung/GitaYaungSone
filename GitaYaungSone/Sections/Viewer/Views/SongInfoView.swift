@@ -15,7 +15,7 @@ struct SongInfoView: View {
 
     var body: some View {
         List {
-            Section {
+            Section(song.title) {
                 if let artist = self.artist {
                     FormCell2 {
                         Text("Artist")
@@ -72,10 +72,15 @@ struct SongInfoView: View {
                 } right: {
                     Text(song.mediaLink)
                 }
+                FormCell2 {
+                    Text("Views")
+                } right: {
+                    Text(song.popularity.description)
+                }
             }
         }
         .navigationTitle("Info")
-        .embeddedInNavigationView(showCancelButton: true)
+//        .embeddedInNavigationView(showCancelButton: true)
         .task {
             artist = await ArtistRepo.shared.fetch([.name(song.artist)]).first
             album = await AlbumRepo.shared.fetch([.name(song.album)]).first

@@ -61,7 +61,7 @@ extension ViewerSessionView {
             HasSavedButton(song: viewModel.song)
             XIcon(.info_circle_fill)
                 .aspectRatio(1, contentMode: .fit)
-                .tapToPresent(SongInfoView(song: viewModel.song))
+                .tapToPush(SongInfoView(song: viewModel.song))
         }
 
     }

@@ -14,9 +14,9 @@ struct AlbumView: View {
 
     var body: some View {
         List {
-            Section(header: headerView()) {
+            Section(header: headerView(), footer: footerView()) {
                 ForEach(viewModel.displayingSong) { song in
-                    ExplorerCell(song: song)
+                    SongListCell(song: song)
                 }
             }
         }
@@ -28,11 +28,16 @@ struct AlbumView: View {
 
     private func headerView() -> some View {
         HStack {
-            Text("\(viewModel.displayingSong.count) songs")
+            Text(album.artist ?? "")
+
             Spacer()
             Text(album.popularity.description)
                 .italic()
                 .foregroundStyle(.secondary)
         }
+    }
+
+    private func footerView() -> some View {
+        Text("\(viewModel.displayingSong.count) songs")
     }
 }

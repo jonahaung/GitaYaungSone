@@ -13,12 +13,12 @@ struct AlbumCell: View {
 
     var body: some View {
         HStack {
-            XIcon(.music_quarternote_3)
+            XIcon(.music_note_list)
                 .foregroundColor(XColor.UI.gray)
             Text(album.name)
                 .lineLimit(1)
                 .foregroundColor(.primary)
-                .font(XFont.universal(for: .body).font)
+                .font(XFont.universal(for: .headline).font)
             Spacer()
             artistNameView()
         }
@@ -29,8 +29,7 @@ struct AlbumCell: View {
         Group {
             if let artist = album.artist {
                 Text(artist)
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
+                    .font(XFont.universal(for: .footnote).font)
             }
         }
     }

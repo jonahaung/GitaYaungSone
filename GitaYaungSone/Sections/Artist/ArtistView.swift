@@ -14,56 +14,69 @@ struct ArtistView: View {
 
     var body: some View {
         List {
-            Section(header: profilePhotoView()) {
-                HStack {
-                    Spacer()
-                    XIcon(.heart_fill)
-                        .foregroundColor(.pink)
-                    Text(artist.popularity.description)
-                        .italic()
-                        .foregroundStyle(.secondary)
-                }
+            if viewModel.searchText.isEmpty {
+                Section(header: profilePhotoView()) {}
             }
 
-            Section("Albums") {
-                ForEach(viewModel.allSongs.albums) { album in
-                    DisclosureGroup {
-                        ForEach(album.songs) {
-                            SongListCell(song: $0)
-                                .foregroundStyle(.secondary)
+            let albums = viewModel.allSongs.albums
+            if !albums.isEmpty {
+                Section("Albums") {
+                    ForEach(albums) { album in
+                        DisclosureGroup {
+                            ForEach(album.songs) {
+                                SongListCell(song: $0)
+                                    .foregroundStyle(.secondary)
+                            }
+                        } label: {
+                            Text(album.name.isWhitespace ? "No Album" : album.name)
+                                .font(XFont.universal(for: .callout).font)
                         }
-                    } label: {
-                        Text(album.name.isWhitespace ? "No Album" : album.name)
-                            .font(XFont.universal(for: .callout).font)
                     }
                 }
             }
 
-            Section("Songs") {
-                ForEach(viewModel.allSongs.songs) { song in
-                    SongListCell(song: song)
+            let songs = viewModel.allSongs.songs
+            if !songs.isEmpty {
+                Section("Songs") {
+                    ForEach(viewModel.allSongs.songs) { song in
+                        SongListCell(song: song)
+                    }
                 }
             }
+
         }
         .navigationTitle(artist.name)
+        .searchable(text: $viewModel.searchText, prompt: "Search \(artist.name)'s songs")
         .task {
             await viewModel.fetch(for: artist)
         }
     }
 
     private func profilePhotoView() -> some View {
-        AsyncImage(url: URL(string: artist.photoURL ?? "https://media.kidadl.com/60222d821b08477d67613564_quotes_from_famous_infj_musicians_f8ad748170.jpeg"),
-            content: { image in
-                image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(5)
-            }, placeholder: {
-                VStack {
-                    ProgressView()
-                }
-                .frame(maxWidth: .infinity)
-                .frame(minHeight: 250)
-            })
+        VStack {
+            AsyncImage(url: URL(string: artist.photoURL ?? "https://media.kidadl.com/60222d821b08477d67613564_quotes_from_famous_infj_musicians_f8ad748170.jpeg"),
+                content: { image in
+                    image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(5)
+                }, placeholder: {
+                    VStack {
+                        ProgressView()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(minHeight: 250)
+                })
+            HStack {
+                XIcon(.heart_fill)
+                    .foregroundColor(.pink)
+                Spacer()
+                XIcon(.star_fill)
+                Text(artist.popularity.description)
+                    .italic()
+                    .foregroundStyle(.secondary)
+            }
+
+        }
     }
 }

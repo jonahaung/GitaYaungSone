@@ -17,17 +17,14 @@ struct ExplorerCell: View {
             
             Text(song.title.whiteSpace)
                 .font(XFont.headline(for: song.title).font)
-                .foregroundColor(.primary)
+                .foregroundColor(.secondary)
             +
             Text(" ")
             +
             Text(song.artist)
-                .foregroundColor(.secondary)
                 .font(XFont.universal(for: .footnote).font)
             Spacer()
-            Text(song.popularity.description)
-                .font(.footnote)
-                .foregroundStyle(.secondary)
+
         }
         .tapToPresent(ViewerSessionView(song: song), .fullScreen)
     }
