@@ -87,8 +87,6 @@
 		4705843228392E49004F08A7 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583E428392E49004F08A7 /* Instrument.swift */; };
 		4705843328392E49004F08A7 /* ChordsLibrarySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583E528392E49004F08A7 /* ChordsLibrarySession.swift */; };
 		4705843428392E49004F08A7 /* FretboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583E628392E49004F08A7 /* FretboardView.swift */; };
-		4705843528392E49004F08A7 /* ViewerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EA28392E49004F08A7 /* ViewerTextView.swift */; };
-		4705843628392E49004F08A7 /* ViewerAttributedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EB28392E49004F08A7 /* ViewerAttributedTextView.swift */; };
 		4705843728392E49004F08A7 /* ViewerSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583ED28392E49004F08A7 /* ViewerSessionView.swift */; };
 		4705843928392E49004F08A7 /* ViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583EF28392E49004F08A7 /* ViewerViewModel.swift */; };
 		4705843A28392E49004F08A7 /* SongLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470583F028392E49004F08A7 /* SongLineView.swift */; };
@@ -200,8 +198,6 @@
 		470583E428392E49004F08A7 /* Instrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		470583E528392E49004F08A7 /* ChordsLibrarySession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordsLibrarySession.swift; sourceTree = "<group>"; };
 		470583E628392E49004F08A7 /* FretboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FretboardView.swift; sourceTree = "<group>"; };
-		470583EA28392E49004F08A7 /* ViewerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerTextView.swift; sourceTree = "<group>"; };
-		470583EB28392E49004F08A7 /* ViewerAttributedTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerAttributedTextView.swift; sourceTree = "<group>"; };
 		470583ED28392E49004F08A7 /* ViewerSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerSessionView.swift; sourceTree = "<group>"; };
 		470583EF28392E49004F08A7 /* ViewerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewerViewModel.swift; sourceTree = "<group>"; };
 		470583F028392E49004F08A7 /* SongLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongLineView.swift; sourceTree = "<group>"; };
@@ -580,18 +576,8 @@
 				470583ED28392E49004F08A7 /* ViewerSessionView.swift */,
 				470583EF28392E49004F08A7 /* ViewerViewModel.swift */,
 				47E6EB71283D3D2F00E0EB68 /* Views */,
-				470583E928392E49004F08A7 /* AttributedTextView */,
 			);
 			path = Viewer;
-			sourceTree = "<group>";
-		};
-		470583E928392E49004F08A7 /* AttributedTextView */ = {
-			isa = PBXGroup;
-			children = (
-				470583EA28392E49004F08A7 /* ViewerTextView.swift */,
-				470583EB28392E49004F08A7 /* ViewerAttributedTextView.swift */,
-			);
-			path = AttributedTextView;
 			sourceTree = "<group>";
 		};
 		47174ED1289F58BF008673FA /* Artist */ = {
@@ -833,7 +819,6 @@
 				4705836728392DB3004F08A7 /* XConstants.swift in Sources */,
 				47174ED4289F58DE008673FA /* ArtistView.swift in Sources */,
 				4705841F28392E49004F08A7 /* ExplorerViewModel.swift in Sources */,
-				4705843628392E49004F08A7 /* ViewerAttributedTextView.swift in Sources */,
 				4705843428392E49004F08A7 /* FretboardView.swift in Sources */,
 				4705830928392DA6004F08A7 /* Persistence.swift in Sources */,
 				4794AE47283B7A7E005020C1 /* AlbumRepo.swift in Sources */,
@@ -868,7 +853,6 @@
 				47174EE0289F8C83008673FA /* +YArtist.swift in Sources */,
 				4705837628392DC8004F08A7 /* MainTabView.swift in Sources */,
 				4705837728392DC8004F08A7 /* AppDelegateAdaptor.swift in Sources */,
-				4705843528392E49004F08A7 /* ViewerTextView.swift in Sources */,
 				4705836B28392DB3004F08A7 /* TapToPresentStyle.swift in Sources */,
 				4705837528392DC8004F08A7 /* AppSettings.swift in Sources */,
 				4705842F28392E49004F08A7 /* LibraryChord.swift in Sources */,

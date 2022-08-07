@@ -10,15 +10,12 @@ import UIKit
 final class ViewerViewModel: ObservableObject {
     
     var song: Song
-    @Published var lines = [Song.Line]()
-    weak var textView: ViewerTextView?
     
     init(_ song: Song) {
         self.song = song
     }
     
     func task() async {
-
         song.popularity += 1
         SongRepo.shared.update(song)
     }
@@ -95,5 +92,13 @@ extension Song {
         }
         attrText.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.nonLineBreak, range: rawText.nsRange())
         return attrText
+    }
+}
+extension String {
+
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
     }
 }
