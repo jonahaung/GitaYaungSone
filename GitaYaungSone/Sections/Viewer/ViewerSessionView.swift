@@ -21,17 +21,15 @@ struct ViewerSessionView: View {
                 Section {
                     Text(viewModel.song.title.whiteSpace)
                         .font(XFont.title(for: viewModel.song.title).font)
-                    +
-                    Text(viewModel.song.artist.nonLineBreak)
-                        .font(XFont.footnote(for: viewModel.song.artist).font)
                 }
-                .foregroundColor(.orange)
+//                .foregroundColor(.orange)
                 
                 Section {
                     ForEach(viewModel.song.lines()) {
                         SongLineView(line: $0)
                     }
                 }
+                .font(XFont.universal(for: .body).font)
                 .font(XFont.body(for: viewModel.song.rawText).font)
                 
                 Divider()

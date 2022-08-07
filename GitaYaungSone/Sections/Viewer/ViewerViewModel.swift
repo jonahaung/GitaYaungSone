@@ -61,21 +61,42 @@ extension Song {
         let cFont = XFont.chord()
         
         self.lines().forEach { line in
-            var chordLine = String()
-            var wordLine = String()
-            line.chordTexts.forEach { part in
-                if let chord = part.chord {
-                    chordLine += chord.name
+            switch line.lineType {
+            case .Directive:
+                if let comment = line.comment {
+                    attrText.append(.init(string: comment.newLine, attributes: [.foregroundColor: UIColor.systemGray]))
                 }
-                
-                wordLine += part.text.whiteSpace
-                while chordLine.widthOfString(usingFont: cFont) + cFont.pointSize < wordLine.widthOfString(usingFont: font) {
+            case .Chords:
+                let chords = line.chordTexts.map{$0.chord}
+                if !chords.isEmpty {
+                    var str = ""
+                    chords.forEach { chord in
+                        if let chord = chord {
+                            str = str+chord.name.whiteSpace
+                        }
+                    }
+                    attrText.append(.init(string: str.newLine, attributes: [.foregroundColor: UIColor.systemOrange, .font: XFont.chord()]))
+                }
+            case .Texts:
+                break
+            case .Lyric:
+                var chordLine = String()
+                var wordLine = String()
+                line.chordTexts.forEach { part in
+                    if let chord = part.chord {
+                        chordLine += chord.name
+                    }
+                    wordLine += part.text.whiteSpace
+                    while chordLine.widthOfString(usingFont: cFont) + cFont.pointSize < wordLine.widthOfString(usingFont: font) {
+                        chordLine += " "
+                    }
                     chordLine += " "
                 }
-                chordLine += " "
+                attrText.append(.init(string: chordLine.newLine, attributes: [.font: cFont, .foregroundColor: isDark ? UIColor.systemOrange : UIColor.systemPink]))
+                attrText.append(.init(string: wordLine.newLine, attributes: [.font: font, .foregroundColor: isDark ? UIColor.label : .black]))
+            case .Empty:
+                break
             }
-            attrText.append(.init(string: chordLine.newLine, attributes: [.font: cFont, .foregroundColor: isDark ? UIColor.systemOrange : UIColor.systemPink]))
-            attrText.append(.init(string: wordLine.newLine, attributes: [.font: font, .foregroundColor: isDark ? UIColor.label : .black]))
         }
         attrText.addAttribute(.paragraphStyle, value: NSMutableParagraphStyle.nonLineBreak, range: rawText.nsRange())
         return attrText
