@@ -8,7 +8,7 @@
 import SwiftUI
 import WaterfallGrid
 
-struct PopularAlbumsView: View {
+struct AlbumTagsView: View {
 
     @State private var albums = [Album]()
 
@@ -17,7 +17,16 @@ struct PopularAlbumsView: View {
             XSectionView {
                 VStack(spacing: 10) {
                     ForEach(albums) { album in
-                        AlbumCell(album: album)
+                        HStack {
+                            XIcon(.book_fill)
+                            Text(album.name)
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Text(album.popularity.description)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                        .tapToPush(ExplorerView(filters: [.album(album.name)]))
                         if album.id != albums.last?.id {
                             Divider()
                         }

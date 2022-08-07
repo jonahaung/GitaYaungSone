@@ -19,22 +19,6 @@ final class ViewerViewModel: ObservableObject {
     func task() async {
         song.popularity += 1
         SongRepo.shared.update(song)
-        if var artist = await ArtistRepo.shared.fetch([.name(song.artist)]).first {
-            artist.popularity += 1
-            ArtistRepo.shared.update(artist)
-        } else {
-            let artist = Artist(name: song.artist)
-            ArtistRepo.shared.add(artist)
-        }
-        if !song.album.isEmpty {
-            if var album = await AlbumRepo.shared.fetch([.name(song.album)]).first {
-                album.popularity += 1
-                AlbumRepo.shared.update(album)
-            } else {
-                let album = Album(name: song.album)
-                AlbumRepo.shared.add(album)
-            }
-        }
     }
 
 }

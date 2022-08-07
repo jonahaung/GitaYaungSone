@@ -9,15 +9,17 @@ import Foundation
 
 final class ExplorerViewModel: ObservableObject {
     
-    @Published var songs = [Song]()
+    private var songs = [Song]()
+    var displayingSong: [Song] { searchText.isEmpty ? songs : songs.filter{ $0.title.contains(searchText)}}
+    var allSongs: AllSong { .init(displayingSong)}
+    
+    @Published var searchText = String()
 
     func fetch(for filters: [Song.QueryFilter]) async {
-       
-        let songs = await SongRepo.shared.fetch(filters)
+        let songs = await SongRepo.shared.fetch(filters, limit: 10)
         DispatchQueue.main.async {[weak self] in
             self?.songs = songs
+            self?.objectWillChange.send()
         }
     }
 }
-
-

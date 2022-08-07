@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="YArtist" representedClassName="YArtist" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photoURL" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="YSong" representedClassName="YSong" syncable="YES" codeGenerationType="class">
         <attribute name="album" optional="YES" attributeType="String"/>
         <attribute name="artist" optional="YES" attributeType="String"/>
@@ -18,5 +23,6 @@
     </entity>
     <elements>
         <element name="YSong" positionX="-63" positionY="-18" width="128" height="239"/>
+        <element name="YArtist" positionX="-63" positionY="90" width="128" height="74"/>
     </elements>
 </model>

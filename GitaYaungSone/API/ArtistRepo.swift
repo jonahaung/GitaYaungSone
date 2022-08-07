@@ -29,7 +29,6 @@ class ArtistRepo {
         queryItems.forEach {
             query = query.whereField($0.key, isEqualTo: $0.value)
         }
-        
         return await Repo.fetch(query: query)
     }
     

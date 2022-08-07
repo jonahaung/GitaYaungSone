@@ -13,6 +13,7 @@ struct Artist: Codable, Identifiable {
     let name: String
     var albums = 0
     var popularity = 0
+    var photoURL: String? = "https://api.time.com/wp-content/uploads/2019/09/karaoke-mic.jpg"
 }
 
 

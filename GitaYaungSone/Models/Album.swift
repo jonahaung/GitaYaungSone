@@ -12,4 +12,5 @@ struct Album: Codable, Identifiable {
     @DocumentID var id: String?
     let name: String
     var popularity = 0
+    var artist: String?
 }

@@ -13,7 +13,7 @@ struct SavedSongsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \YSong.popularity, ascending: true)],animation: .default)
     private var songs: FetchedResults<YSong>
-    @AppStorage("SavedSongsView.Arrangement") private var currentArrangement: Arrangement = Arrangement.artist
+    @AppStorage("SavedSongsView.Arrangement") private var currentArrangement = Arrangement.artist
     var allSong: AllSong { .init(Array(songs).map(Song.init))}
     
     var body: some View {
@@ -46,7 +46,7 @@ struct SavedSongsView: View {
     private func arrangedByAlbumsView() -> some View {
         Group {
             ForEach(allSong.albums) { album in
-                DisclosureGroup(isExpanded: .constant(true)) {
+                DisclosureGroup {
                     songsList(album.songs)
                 } label: {
                     Text(album.name.isWhitespace ? "No Album" : album.name)
@@ -54,6 +54,7 @@ struct SavedSongsView: View {
             }
         }
     }
+
     private func arrangedByArtistsView() -> some View {
         Group {
             ForEach(allSong.artists) { artist in
@@ -73,7 +74,6 @@ struct SavedSongsView: View {
                 } label: {
                     Text(artist.name)
                 }
-                
             }
         }
     }
