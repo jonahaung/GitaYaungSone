@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ViewerSessionView: View {
+struct ViewerView: View {
     
     @StateObject private var viewModel: ViewerViewModel
     
@@ -28,16 +28,14 @@ struct ViewerSessionView: View {
                         SongLineView(line: $0)
                     }
                 }
-                .font(XFont.universal(for: .subheadline).font)
-                
-                Divider()
-                    .padding()
-                
+                .font(Font.custom(XFont.MyanmarFont.MyanmarSansPro.rawValue, size: viewModel.fontSize))
+
                 bottomBar()
             }
+            .padding(.horizontal, 10)
         }
-        .padding(.horizontal, 10)
         .background(Color(uiColor: .secondarySystemBackground))
+
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: trailingItems)
         .embeddedInNavigationView(showCancelButton: true)
@@ -47,19 +45,37 @@ struct ViewerSessionView: View {
     }
 
     private func bottomBar() -> some View {
-        HStack(spacing: 10) {
-            XIcon(.info_circle_fill)
-                .aspectRatio(1, contentMode: .fit)
-                .tapToPush(SongInfoView(song: viewModel.song))
-            Text("PDF")
-                .tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false))
-                    .preferredColorScheme(.light))
-            HasSavedButton(song: viewModel.song)
+        VStack {
+            HStack(spacing: 10) {
+                XIcon(.info_circle_fill)
+                    .aspectRatio(1, contentMode: .fit)
+                    .tapToPush(SongInfoView(song: viewModel.song))
+                Text("PDF")
+                    .tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false))
+                        .preferredColorScheme(.light))
+                HasSavedButton(song: viewModel.song)
+            }
+            HStack {
+                Slider(value: $viewModel.fontSize, in: 10.0...30.0)
+            }
         }
+        .padding()
+    }
+
+    private func floatingMenu() -> some View {
+        Button {
+            withAnimation{
+                viewModel.showControls.toggle()
+            }
+        } label: {
+            XIcon(viewModel.showControls ? .xmark : .music_note_list)
+                .font(.title)
+                .frame(width: 50, height: 50, alignment: .center)
+        }.accentColor(.cyan)
     }
 }
 
-extension ViewerSessionView {
+extension ViewerView {
     
     private var trailingItems: some View {
         HStack {

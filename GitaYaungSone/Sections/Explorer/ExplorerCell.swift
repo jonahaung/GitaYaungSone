@@ -26,6 +26,6 @@ struct ExplorerCell: View {
             Spacer()
 
         }
-        .tapToPresent(ViewerSessionView(song: song), .fullScreen)
+        .tapToPresent(ViewerView(song: song), .fullScreen)
     }
 }

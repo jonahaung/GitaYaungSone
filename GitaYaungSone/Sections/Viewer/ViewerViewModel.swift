@@ -10,6 +10,8 @@ import UIKit
 final class ViewerViewModel: ObservableObject {
     
     var song: Song
+    @Published var showControls = false
+    @Published var fontSize = CGFloat(17)
     
     init(_ song: Song) {
         self.song = song
