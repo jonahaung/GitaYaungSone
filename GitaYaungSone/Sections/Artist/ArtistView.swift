@@ -15,31 +15,36 @@ struct ArtistView: View {
     var body: some View {
         List {
             if viewModel.searchText.isEmpty {
-                Section(header: profilePhotoView()) {}
-            }
-            let albums = viewModel.allSongs.albums
-            if !albums.isEmpty {
-                Section("Albums") {
-                    ForEach(albums) { album in
-                        DisclosureGroup {
-                            ForEach(album.songs) {
-                                SongListCell(song: $0)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } label: {
-                            Text(album.name.isWhitespace ? "No Album" : album.name)
-                                .font(XFont.universal(for: .callout).font)
-                        }
+                Section(header: profilePhotoView()) {
+                    HStack {
+                        XIcon(.heart_fill)
+                            .foregroundColor(.pink)
+                        Spacer()
+                        XIcon(.star_fill)
+                        Text(artist.popularity.description)
+                            .italic()
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
 
-            let songs = viewModel.allSongs.songs
-            if !songs.isEmpty {
-                Section("Songs") {
-                    ForEach(viewModel.allSongs.songs) { song in
-                        SongListCell(song: song)
+            Section("Albums") {
+                ForEach(viewModel.allSongs.albums) { album in
+                    DisclosureGroup {
+                        ForEach(album.songs) {
+                            SongListCell(song: $0)
+                                .foregroundStyle(.secondary)
+                        }
+                    } label: {
+                        Text(album.name.isWhitespace ? "No Album" : album.name)
+                            .font(XFont.universal(for: .callout).font)
                     }
+                }
+            }
+
+            Section("Songs") {
+                ForEach(viewModel.songs) { song in
+                    SongListCell(song: song)
                 }
             }
 
@@ -56,9 +61,9 @@ struct ArtistView: View {
             let url = URL(string: artist.photoURL ?? "https://media.kidadl.com/60222d821b08477d67613564_quotes_from_famous_infj_musicians_f8ad748170.jpeg")
             CachedAsyncImage(url: url) { image in
                 image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .cornerRadius(5)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .cornerRadius(5)
             } placeholder: {
                 VStack {
                     ProgressView()
@@ -66,17 +71,6 @@ struct ArtistView: View {
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 250)
             }
-
-            HStack {
-                XIcon(.heart_fill)
-                    .foregroundColor(.pink)
-                Spacer()
-                XIcon(.star_fill)
-                Text(artist.popularity.description)
-                    .italic()
-                    .foregroundStyle(.secondary)
-            }
-
         }
     }
 }

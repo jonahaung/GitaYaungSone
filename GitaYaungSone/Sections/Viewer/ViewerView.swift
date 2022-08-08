@@ -8,34 +8,30 @@
 import SwiftUI
 
 struct ViewerView: View {
-    
-    @StateObject private var viewModel: ViewerViewModel
-    
+
     init(song: Song) {
         _viewModel = .init(wrappedValue: .init(song))
     }
-    
+
+    @StateObject private var viewModel: ViewerViewModel
+
     var body: some View {
         ScrollView([.vertical, .horizontal], showsIndicators: false) {
             VStack(alignment: .leading, spacing: 3) {
                 Section {
-                    Text(viewModel.song.title.whiteSpace)
+                    Text(viewModel.song.title)
                         .font(XFont.title(for: viewModel.song.title).font)
-                }
-                
-                Section {
                     ForEach(viewModel.song.lines()) {
                         SongLineView(line: $0)
                     }
+                    Spacer(minLength: 100)
                 }
                 .font(Font.custom(XFont.MyanmarFont.MyanmarSansPro.rawValue, size: viewModel.fontSize))
-
-                bottomBar()
             }
             .padding(.horizontal, 10)
         }
         .background(Color(uiColor: .secondarySystemBackground))
-
+        .overlay(bottomBar(), alignment: .bottom)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: trailingItems)
         .embeddedInNavigationView(showCancelButton: true)
@@ -43,48 +39,40 @@ struct ViewerView: View {
             await viewModel.task()
         }
     }
-
-    private func bottomBar() -> some View {
-        VStack {
-            HStack(spacing: 10) {
-                XIcon(.info_circle_fill)
-                    .aspectRatio(1, contentMode: .fit)
-                    .tapToPush(SongInfoView(song: viewModel.song))
-                Text("PDF")
-                    .tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false))
-                        .preferredColorScheme(.light))
-                HasSavedButton(song: viewModel.song)
-            }
-            HStack {
-                Slider(value: $viewModel.fontSize, in: 10.0...30.0)
-            }
-        }
-        .padding()
-    }
-
-    private func floatingMenu() -> some View {
-        Button {
-            withAnimation{
-                viewModel.showControls.toggle()
-            }
-        } label: {
-            XIcon(viewModel.showControls ? .xmark : .music_note_list)
-                .font(.title)
-                .frame(width: 50, height: 50, alignment: .center)
-        }.accentColor(.cyan)
-    }
 }
 
 extension ViewerView {
-    
+
+    private func bottomBar() -> some View {
+        HStack(spacing: 10) {
+            HasSavedButton(song: viewModel.song)
+            Text("PDF")
+                .tapToPresent(PdfView(attributedText: viewModel.song.attributedText(isDark: false))
+                    .preferredColorScheme(.light))
+            Slider(value: $viewModel.fontSize, in: 8.0...25.0)
+            XIcon(.info_circle_fill)
+                .aspectRatio(1, contentMode: .fit)
+                .tapToPush(SongInfoView().environmentObject(viewModel))
+        }
+        .padding(.horizontal)
+        .background(.ultraThinMaterial)
+    }
+
     private var trailingItems: some View {
         HStack {
-            Text(viewModel.song.artist)
-                .foregroundStyle(.secondary)
-                .tapToPush(ExplorerView(filters: [.artist(viewModel.song.artist)]))
-            Text(viewModel.song.key)
+            if let artist = viewModel.artist {
+                Text(artist.name)
+                    .foregroundStyle(.secondary)
+                    .tapToPush(ArtistView(artist: artist))
+            }
+            Spacer()
+            HStack {
+                Text("Key ")
+                    .italic()
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                Text(viewModel.song.key)
+            }
         }
-
     }
-    
 }

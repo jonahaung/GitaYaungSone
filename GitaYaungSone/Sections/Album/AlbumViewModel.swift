@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class AlbumViewModel: ObservableObject {
 
@@ -40,11 +41,11 @@ final class AlbumViewModel: ObservableObject {
         }
 
         DispatchQueue.main.async {[weak self] in
-            self?.songs = songs
-            self?.objectWillChange.send()
+            guard let self = self else { return }
+            self.songs = songs
+            withAnimation {
+                self.objectWillChange.send()
+            }
         }
-
-
     }
-
 }

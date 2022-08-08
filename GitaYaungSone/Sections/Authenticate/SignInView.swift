@@ -45,19 +45,35 @@ struct SignInView: View {
                     .labelsHidden()
                 }
             }
-            
-            Button("Sign In") {
-                Task {
-                    await authenticator.signIn(with: email, password)
+
+            Section {
+                Button(viewType == .SignIn ? "Sign In" : "Register") {
+                    Task {
+                        switch viewType {
+                        case .SignIn:
+                            await authenticator.signIn(with: email, password)
+                        case .Register:
+                            await authenticator.register(with: email, password)
+                        }
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                .disabled(email.isWhitespace || password.isWhitespace )
             }
-            .frame(maxWidth: .infinity)
-            .disabled(email.isWhitespace || password.isWhitespace )
-            
-            Button("Sign In Annoymously") {
-                Task {
-                    await authenticator.signIn()
+
+            Section {
+                Button("Sign In Annoymously") {
+                    Task {
+                        await authenticator.signInAnonymously()
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                Button("Forget Password") {
+                    Task {
+
+                    }
+                }
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationTitle(viewType.rawValue)
@@ -77,10 +93,12 @@ struct SignInView: View {
     private func passwordTextField() -> some View {
         SecureField("Password", text: $password)
             .textContentType(.password)
+            .autocapitalization(.none)
     }
     
     private func retypePasswordTextField() -> some View {
         SecureField("Retype Password", text: $retypePassword)
             .textContentType(.password)
+            .autocapitalization(.none)
     }
 }

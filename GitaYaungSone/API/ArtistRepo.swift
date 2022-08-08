@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 class ArtistRepo {
+    
     static let shared = ArtistRepo()
     let reference = Firestore.firestore().collection("artists")
     

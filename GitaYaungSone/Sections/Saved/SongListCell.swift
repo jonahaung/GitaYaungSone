@@ -18,8 +18,15 @@ struct SongListCell: View {
             Text(song.title)
                 .foregroundColor(.secondary)
             Spacer()
+            if hasSaved {
+                XIcon(.heart_fill)
+                    .foregroundColor(.red)
+                    .foregroundStyle(.secondary)
+            }
         }
         .font(XFont.universal(for: .body).font)
         .tapToPresent(ViewerView(song: song), .fullScreen)
     }
+
+    private var hasSaved: Bool { YSong.hasSaved(for: song.id ?? "") != nil }
 }

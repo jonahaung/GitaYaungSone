@@ -14,7 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section {
+            Section("User") {
                 if let user = authenticator.currentUser {
                     FormCell2 {
                         Text("user")
@@ -32,6 +32,12 @@ struct SettingsView: View {
                 Button("Developer Action") {
                     
                 }
+            }
+
+            Section("About Us") {
+                Text("Terms & Conditions")
+                Text("Abouy Us")
+                Text("Contact Us")
             }
         }
         .navigationTitle("Settings")

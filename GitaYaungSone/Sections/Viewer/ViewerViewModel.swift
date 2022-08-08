@@ -10,8 +10,9 @@ import UIKit
 final class ViewerViewModel: ObservableObject {
     
     var song: Song
-    @Published var showControls = false
-    @Published var fontSize = CGFloat(17)
+    var artist: Artist?
+    var album: Album?
+    @Published var fontSize = CGFloat(15)
     
     init(_ song: Song) {
         self.song = song
@@ -20,6 +21,13 @@ final class ViewerViewModel: ObservableObject {
     func task() async {
         song.popularity += 1
         SongRepo.shared.update(song)
+
+        artist = await ArtistRepo.shared.fetch([.name(song.artist)]).first
+        album = await AlbumRepo.shared.fetch([.name(song.album)]).first
+
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
+        }
     }
 
 }

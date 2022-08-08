@@ -23,10 +23,8 @@ class Authenticator: ObservableObject {
     init(){
         handler = Auth.auth().addStateDidChangeListener{ [weak self] auth, user in
             guard let self  = self else { return }
-            print(auth)
             self.currentUser = user
         }
-        
     }
     
     func signIn(with email: String,_ password: String) async {
@@ -44,7 +42,8 @@ class Authenticator: ObservableObject {
             }
         }
     }
-    func signIn() async {
+
+    func signInAnonymously() async {
         showLoading = true
         do{
             try await Auth.auth().signInAnonymously()
@@ -59,6 +58,7 @@ class Authenticator: ObservableObject {
             }
         }
     }
+
     func register(with email: String,_ password: String) async {
         do{
             try await Auth.auth().createUser(withEmail: email, password: password)
@@ -77,7 +77,6 @@ class Authenticator: ObservableObject {
             self.error = error.localizedDescription
             self.showErrorAlert = true
         }
-        
     }
     
     deinit{

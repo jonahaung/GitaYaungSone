@@ -9,27 +9,25 @@ import SwiftUI
 
 struct SongInfoView: View {
 
-    let song: Song
-    @State private var artist: Artist?
-    @State private var album: Album?
+    @EnvironmentObject var viewModel: ViewerViewModel
 
     var body: some View {
         List {
-            Section(song.title) {
-                if let artist = self.artist {
+            Section(viewModel.song.title) {
+                if let artist = viewModel.artist {
                     FormCell2 {
                         Text("Artist")
                     } right: {
-                        Text(song.artist)
+                        Text(artist.name)
                     }
                     .tapToPush(ArtistView(artist: artist))
                 }
                 
-                if let album = album {
+                if let album = viewModel.album {
                     FormCell2 {
                         Text("Album")
                     } right: {
-                        Text(song.album)
+                        Text(album.name)
                     }
                     .tapToPush(AlbumView(album: album))
                 }
@@ -37,21 +35,21 @@ struct SongInfoView: View {
                 FormCell2 {
                     Text("Composer")
                 } right: {
-                    Text(song.composer)
+                    Text(viewModel.song.composer)
                 }
-                .tapToPush(ExplorerView(filters: [.composer(song.composer)]))
+                .tapToPush(ExplorerView(filters: [.composer(viewModel.song.composer)]))
             }
             
             Section {
                 FormCell2 {
                     Text("Key")
                 } right: {
-                    Text(song.key)
+                    Text(viewModel.song.key)
                 }
                 FormCell2 {
                     Text("Tempo")
                 } right: {
-                    Text(song.tempo)
+                    Text(viewModel.song.tempo)
                 }
             }
             
@@ -59,31 +57,26 @@ struct SongInfoView: View {
                 FormCell2 {
                     Text("Genre")
                 } right: {
-                    Text(song.genre)
+                    Text(viewModel.song.genre)
                 }
-                .tapToPush(ExplorerView(filters: [.genre(song.genre)]))
+                .tapToPush(ExplorerView(filters: [.genre(viewModel.song.genre)]))
                 FormCell2 {
                     Text("Created")
                 } right: {
-                    Text(song.created, formatter: RelativeDateTimeFormatter())
+                    Text(viewModel.song.created, formatter: RelativeDateTimeFormatter())
                 }
                 FormCell2 {
                     Text("Link")
                 } right: {
-                    Text(song.mediaLink)
+                    Text(viewModel.song.mediaLink)
                 }
                 FormCell2 {
                     Text("Views")
                 } right: {
-                    Text(song.popularity.description)
+                    Text(viewModel.song.popularity.description)
                 }
             }
         }
         .navigationTitle("Info")
-//        .embeddedInNavigationView(showCancelButton: true)
-        .task {
-            artist = await ArtistRepo.shared.fetch([.name(song.artist)]).first
-            album = await AlbumRepo.shared.fetch([.name(song.album)]).first
-        }
     }
 }

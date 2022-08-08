@@ -12,13 +12,21 @@ struct SettingsUserProfile: View {
     
     var body: some View {
         Form {
-            if let email = authenticator.currentUser?.email {
-                Text(email)
-            }
-            Button("Sign Out") {
-                Task {
-                    await authenticator.signOut()
+            
+            Section {
+                if let email = authenticator.currentUser?.email {
+                    Text(email)
+                    Text("Admin Edit")
+                        .tapToPush(AdminPannelView())
                 }
+            }
+
+            Section("Admin Pannel") {
+                Button("Sign Out") {
+                    Task {
+                        await authenticator.signOut()
+                    }
+                }.frame(maxWidth: .infinity)
             }
         }
         .navigationTitle("User Profile")
